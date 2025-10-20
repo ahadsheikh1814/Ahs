@@ -12,8 +12,9 @@ type BlogFrontMatter = {
   image?: string;
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const filePath = path.join(process.cwd(), 'data', `${params.slug}.mdx`)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const filePath = path.join(process.cwd(), 'data', `${slug}.mdx`)
   try {
     const singleBlog = await fs.readFile(filePath, 'utf-8')
     const { frontmatter } = await compileMDX<BlogFrontMatter>({
@@ -33,11 +34,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 const SingleBlogPage = async ({ params }: Props) => {
-  const { slug } = params
+  const { slug } = await params
   const filePath = path.join(process.cwd(), 'data', `${slug}.mdx`)
   let singleBlog = ''
   try {
