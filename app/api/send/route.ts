@@ -137,6 +137,7 @@ export async function POST(req: Request) {
           </div>
           
           <p style="color: #666; font-size: 14px;">
+          
             This message was sent from your portfolio contact form.
           </p>
         </div>
