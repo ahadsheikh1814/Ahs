@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 import Navbar from "@/components/layout/Navbar";
 import Container from "@/components/layout/Container";
 import MsgBtn from "@/components/messages/MsgBtn";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Navbar />
           <Container>
             {children}
+            <Footer/>
           </Container>
         </ThemeProvider>
       </body>

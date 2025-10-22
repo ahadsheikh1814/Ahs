@@ -174,7 +174,7 @@ const Form = () => {
       exit={{ opacity: 0, y: 20, scale: 0.9 }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
       className={cn(
-        "fixed right-12 bottom-32 w-96 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden z-50"
+        "fixed md:right-12 md:bottom-32 md:top-auto top-0 right-0 scale-101 md:scale-100 w-96 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden z-50"
       )}
     >
       {/* Header with gradient */}
