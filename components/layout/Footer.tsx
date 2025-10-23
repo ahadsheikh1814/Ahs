@@ -1,15 +1,14 @@
 import { IconBrandX } from "@tabler/icons-react";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import HighLightText from "../elements/HighLightText";
 
 const Footer = () => {
   return (
-    <div className="relative mx-auto h-full w-full  py-3 md:py-3">
-      <div className="flex w-full justify-between border-t border-neutral-100 py-3  dark:border-neutral-800">
+    <div className="relative mx-auto h-full w-full  py-3 text-sm">
+      <div className="flex w-full gap-1 items-center border-t border-neutral-100 py-3  dark:border-neutral-800">
         <p className="">Find me on </p>
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-1">
           <a href="https://x.com/AhadSheikh1814_">
             <IconBrandX />
           </a>
@@ -28,7 +27,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <h3 className="flex gap-2">
+      <h3 className="flex gap-2 items-center">
         Portfolio inspired by{" "}
         <span>
           <HighLightText>

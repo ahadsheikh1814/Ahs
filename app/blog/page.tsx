@@ -18,7 +18,7 @@ const AllBlogsPage = async () => {
   const allBlogs = getBlogs();
   console.log(await allBlogs);
   return (
-    <div className="relative min-h-[200vh]">
+    <div className="relative min-h-screen">
       <H1>All Blogs</H1>
       <HighLightText>I like to write for community</HighLightText>
       <div className="border-accent-foreground/10 bg-accent mt-10 flex flex-col gap-10 rounded border p-3">

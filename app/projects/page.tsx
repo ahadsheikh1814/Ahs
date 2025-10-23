@@ -6,7 +6,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <H1 className="mt-10">Projects</H1>
       <HighLightText>I love to make cool things</HighLightText>
       <div className="mt-5 grid gap-10 md:grid-cols-2">
@@ -18,6 +18,8 @@ const page = () => {
             imgUrl={itm.imgUrl}
             tech={itm.tech}
             link={itm.link}
+            LandImg={itm.LandImg}
+            GitDir={itm.GitDir}
           />
         ))}
       </div>

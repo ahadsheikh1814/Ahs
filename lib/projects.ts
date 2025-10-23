@@ -4,6 +4,8 @@ type project ={
     imgUrl: string;
     tech: string[];
     link:string;
+    LandImg: string;
+    GitDir?: string;
 }
 
 export const Projects:project[] = [
@@ -17,6 +19,8 @@ export const Projects:project[] = [
             "Next js",
             "shadcn/ui"
         ],
-        link:"https://ahs-lab.vercel.app"
+        link:"https://ahs-lab.vercel.app",
+        LandImg:"/AhsLab.png",
+        GitDir:"https://github.com/ahadsheikh1814/AHs-Lab"
     }
 ]

@@ -8,7 +8,7 @@ const Container = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  return <main className={cn(className,"max-w-3xl mx-auto w-full px-5")}>{children}</main>;
+  return <main className={cn(className,"max-w-3xl mx-auto w-full min-h-screen px-5")}>{children}</main>;
 };
 
 export default Container;
