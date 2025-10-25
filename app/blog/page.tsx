@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "All blogs - Ahad Sheikh",
 };
 
-export const truncate = (str: string, n: number) => {
+const truncate = (str: string, n: number) => {
   return str?.length > n ? str.substring(0, n - 1) + "..." : str;
 };
 
