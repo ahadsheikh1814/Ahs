@@ -8,7 +8,7 @@ const truncate = (str: string, n: number) => {
 };
 const BlogPreview = async () => {
   const allBlogs = getBlogs();
-  const blogs = (await allBlogs).slice(0, 3); // Limit to max 3 blogs
+  const blogs = (await allBlogs).slice(0, 3);
   return (
     <div>
       <div className="border-accent-foreground/10 bg-accent mt-5 mb-2 flex flex-col gap-10 rounded border p-3">

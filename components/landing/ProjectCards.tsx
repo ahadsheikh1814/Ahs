@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { IconBrandGithub, IconWorldWww } from "@tabler/icons-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const ProjectCards = ({
   title,
@@ -21,16 +21,19 @@ const ProjectCards = ({
   LandImg: string;
   GitDir?: string;
 }) => {
+  const [isHovered, setHovered] = useState<boolean>(false);
   return (
     <div className="group relative h-full w-full">
       <div
+       onMouseEnter={() => setHovered(true)}
+       onMouseLeave={() => setHovered(false)}
         className={cn(
           "relative flex h-96  flex-col items-start rounded",
           "transition-all duration-100 ease-in-out",
-          // "border-neutral-300 dark:border-neutral-800",
-          // "group-hover:border",
-          "group-hover:shadow-ahs"
         )}
+        style={{
+          boxShadow: isHovered ? 'var(--shadow-ahs)' : 'none'
+        }}
       >
         <div className={cn(
           "h-[50%] w-full overflow-hidden rounded",

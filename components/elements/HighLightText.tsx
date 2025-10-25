@@ -2,7 +2,7 @@ import React from "react";
 
 const HighLightText = ({ children }: { children: React.ReactNode }) => {
   return (
-    <p className="bg-accent relative w-fit p-1 text-sm tracking-wide">
+    <p className="bg-accent relative w-fit p-1 text-sm font-semibold tracking-wide">
       {children}
       <Dots />
     </p>

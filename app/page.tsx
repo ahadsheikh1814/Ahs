@@ -5,6 +5,7 @@ import React from "react";
 import { Projects } from "@/lib/projects";
 import BlogPreview from "@/components/landing/BlogPreview";
 import SeeMoreBtn from "@/components/elements/SeeMoreBtn";
+import HighLightText from "@/components/elements/HighLightText";
 
 
 
@@ -13,7 +14,11 @@ const page =  () => {
   return (
     <div className="min-h-screen">
     <Hero/>
-    <H1 className="mt-10">Projects</H1>
+    <div className="mt-10">
+    <HighLightText>
+      <span className="text-2xl text-primary/80 dark:text-primary/90 font-bold px-2">Projects</span>
+    </HighLightText>
+    </div>
     <div className="grid md:grid-cols-2 gap-10 mt-5">
     {Projects.map((itm,idx)=>(
       <ProjectCards key={idx} title={itm.title} description={itm.description} imgUrl={itm.imgUrl} tech={itm.tech} link={itm.link} LandImg={itm.LandImg} GitDir={itm.GitDir}/>
@@ -22,7 +27,11 @@ const page =  () => {
     <div className="w-full flex justify-center mt-3">
         <SeeMoreBtn link="/projects">See More</SeeMoreBtn>
       </div>
-    <H1 className="mt-10">Blogs</H1>
+      <div className="mt-10">
+    <HighLightText>
+      <span className="text-2xl text-primary/80 dark:text-primary/90 font-bold px-2">Blogs</span>
+    </HighLightText>
+    </div>
     <BlogPreview/>
     </div>
   );
