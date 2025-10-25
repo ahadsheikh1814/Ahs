@@ -1,32 +1,22 @@
 import React from "react";
-import { Metadata } from "next";
-import { getBlogs } from "@/utils/mdx";
 import Link from "next/link";
-import H1 from "@/components/elements/H1";
-import HighLightText from "@/components/elements/HighLightText";
+import { getBlogs } from "@/utils/mdx";
+import SeeMoreBtn from "../elements/SeeMoreBtn";
 
-export const metadata: Metadata = {
-  title: "Blogs - Ahad Sheikh",
-  description: "All blogs - Ahad Sheikh",
-};
-
-export const truncate = (str: string, n: number) => {
+const truncate = (str: string, n: number) => {
   return str?.length > n ? str.substring(0, n - 1) + "..." : str;
 };
-
-const AllBlogsPage = async () => {
+const BlogPreview = async () => {
   const allBlogs = getBlogs();
-  console.log(await allBlogs);
+  const blogs = (await allBlogs).slice(0, 3); // Limit to max 3 blogs
   return (
-    <div className="relative min-h-screen">
-      <H1>All Blogs</H1>
-      <HighLightText>I like to write for community</HighLightText>
-      <div className="border-accent-foreground/10 bg-accent mt-10 flex flex-col gap-10 rounded border p-3">
-        {(await allBlogs).map((blog, idx) => (
+    <div>
+      <div className="border-accent-foreground/10 bg-accent mt-5 mb-2 flex flex-col gap-10 rounded border p-3">
+        {blogs.map((blog, idx) => (
           <Link
             href={`/blog/${blog.slug}`}
             key={idx}
-            className="flex items-center justify-between"
+            className="flex md:flex-row flex-col md:items-center md:justify-between"
           >
             <div className="">
               <h2 className="tracking-tigh text-base font-bold text-neutral-600 dark:text-neutral-200">
@@ -47,8 +37,12 @@ const AllBlogsPage = async () => {
           </Link>
         ))}
       </div>
+
+      <div className="w-full flex justify-center mt-3">
+        <SeeMoreBtn link="/blog">See All blogs</SeeMoreBtn>
+      </div>
     </div>
   );
 };
 
-export default AllBlogsPage;
+export default BlogPreview;

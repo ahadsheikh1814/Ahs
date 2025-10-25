@@ -27,8 +27,9 @@ const ProjectCards = ({
         className={cn(
           "relative flex h-96  flex-col items-start rounded",
           "transition-all duration-100 ease-in-out",
-          "border-neutral-300 dark:border-neutral-800",
-          "group-hover:border"
+          // "border-neutral-300 dark:border-neutral-800",
+          // "group-hover:border",
+          "group-hover:shadow-ahs"
         )}
       >
         <div className={cn(

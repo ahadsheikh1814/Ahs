@@ -38,7 +38,7 @@ const NavLinks: navLink[] = [
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <nav className="mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-5">
+    <nav className="mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-5 sticky bg-background/10 z-20 backdrop-blur-sm top-0 ">
       <ModeToggle />
       <div className="hidden w-[25rem] items-center justify-center gap-5 rounded-full border-[1px] py-1 shadow-2xs md:flex">
         {NavLinks.map((itm, idx) => (
