@@ -6,7 +6,7 @@ import HighLightText from "../elements/HighLightText";
 const Footer = () => {
   return (
     <div className="relative mx-auto h-full w-full  py-3 text-sm">
-      <div className="flex w-full gap-1 items-center border-t border-neutral-200 py-3  dark:border-neutral-7~00">
+      <div className="flex w-full gap-1 items-center border-t border-neutral-200 py-3  dark:border-neutral-700">
         <p className="">Find me on </p>
         <div className="flex items-center justify-center gap-1">
           <a href="https://x.com/AhadSheikh1814_">
