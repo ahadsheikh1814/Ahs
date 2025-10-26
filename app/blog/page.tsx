@@ -33,7 +33,7 @@ const AllBlogsPage = async () => {
                 {blog.title}
               </h2>
               <p className="pt-2 text-sm text-neutral-600 md:text-base dark:text-neutral-200">
-                {truncate(blog.description || "", 100)}
+                {truncate(blog.description || "", 50)}
               </p>
             </div>
             <h2 className="pt-4 text-sm text-neutral-600 md:text-base dark:text-neutral-200">

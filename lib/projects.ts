@@ -12,7 +12,7 @@ export const Projects:project[] = [
     {
         title:"AHs Lab",
         description:"UI Components for Developers. Cut boilerplate, ship faster with AHs Lab.",
-        imgUrl:"/AHs.png",
+        imgUrl:"/AHs.webp",
         tech:[
             "Motion",
             "tailwind css",
@@ -20,7 +20,7 @@ export const Projects:project[] = [
             "shadcn/ui"
         ],
         link:"https://ahs-lab.vercel.app",
-        LandImg:"/AhsLab.png",
+        LandImg:"/AhsLab.webp",
         GitDir:"https://github.com/ahadsheikh1814/AHs-Lab"
     }
 ]

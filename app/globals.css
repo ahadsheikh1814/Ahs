@@ -206,36 +206,76 @@
   }
 }
 
+/* Blog Typography - Minimal & Professional */
+.blog {
+  @apply leading-relaxed;
+}
+
 .blog h1 {
-  @apply mb-6 text-4xl font-bold;
+  @apply mb-8 text-4xl font-bold tracking-tight;
 }
+
 .blog h2 {
-  @apply mb-5 text-3xl font-bold;
+  @apply mb-6 mt-10 text-2xl font-semibold tracking-tight border-b border-border pb-2;
 }
+
 .blog h3 {
-  @apply mb-4 text-2xl font-bold;
+  @apply mb-5 mt-8 text-xl font-semibold tracking-tight;
 }
+
 .blog h4 {
-  @apply mb-3 text-xl font-bold;
+  @apply mb-4 mt-6 text-lg font-semibold tracking-tight;
 }
+
 .blog p {
-  @apply mb-4 text-lg;
+  @apply mb-6 text-base leading-7 text-muted-foreground;
 }
+
 .blog a {
-  @apply text-blue-600 hover:underline;
+  @apply text-foreground underline decoration-1 underline-offset-4 transition-colors hover:text-foreground/70;
 }
-.blog ul {
-  @apply mb-4 list-inside list-disc;
+
+.blog strong {
+  @apply font-semibold text-foreground;
 }
+
+.blog ul,
 .blog ol {
-  @apply mb-4 list-inside list-decimal;
+  @apply mb-6 ml-6 space-y-3;
 }
+
+.blog ul {
+  @apply list-disc;
+}
+
+.blog ol {
+  @apply list-decimal;
+}
+
 .blog li {
-  @apply mb-2;
+  @apply text-base leading-7 text-muted-foreground;
 }
+
+.blog blockquote {
+  @apply mb-6 border-l-4 border-border pl-6 italic text-muted-foreground;
+}
+
+.blog hr {
+  @apply my-8 border-t border-border;
+}
+
 .blog code {
-  @apply rounded bg-gray-100 px-1 py-0.5 font-mono dark:bg-gray-800;
+  @apply rounded bg-muted px-1.5 py-0.5 text-sm font-mono text-foreground;
 }
+
 .blog pre {
-  @apply mb-4 overflow-x-auto rounded bg-gray-100 p-4 dark:bg-gray-800;
+  @apply mb-6 overflow-x-auto rounded-lg border border-border bg-muted p-4 text-sm;
+}
+
+.blog pre code {
+  @apply bg-transparent p-0;
+}
+
+.blog img {
+  @apply mb-6 rounded-lg;
 }

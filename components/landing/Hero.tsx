@@ -1,5 +1,7 @@
-import React from 'react'
-import H1 from '../elements/H1'
+import React from "react";
+import H1 from "../elements/H1";
+import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -20,14 +22,17 @@ const Hero = () => {
         </span>
       </div>
       <p className="text-zinc-600 dark:text-zinc-500">
-      Frontend Developer Specializing in Interactive UI & Performance. Find me on{" "}
+        Frontend Developer Specializing in Interactive UI & Performance. Find me
+        on{" "}
         <a
           href="https://x.com/AhadSheikh1814_"
           className="group font-inter relative inline-flex overflow-hidden font-bold dark:text-zinc-400"
           target="__blank"
         >
           <span className="relative">twitter</span>
-        </a>{" "} and <a
+        </a>{" "}
+        and{" "}
+        <a
           href="https://peerlist.io/ahadsheikh"
           className="group font-inter relative inline-flex overflow-hidden font-bold dark:text-zinc-400"
           target="__blank"
@@ -36,8 +41,28 @@ const Hero = () => {
         </a>{" "}
         for tech updates and memes.
       </p>
+      <div className="mt-5 flex items-center gap-1">
+        <a href="https://x.com/AhadSheikh1814_">
+          <IconBrandX className="h-5 w-5" />
+        </a>
+        <a href="https://github.com/ahadsheikh1814">
+          <IconBrandGithub className="h-5 w-5" />
+        </a>
+        <a
+          href="https://peerlist.io/ahadsheikh"
+          className="block h-5 w-5 overflow-hidden"
+        >
+          <Image
+            src={"/peerlist.webp"}
+            alt="Peerlist"
+            width={500}
+            height={500}
+            className="h-full w-full object-cover"
+          />
+        </a>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
