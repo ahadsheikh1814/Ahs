@@ -1,0 +1,383 @@
+---
+title: "Building a Spotify Now Playing Widget for Your Portfolio"
+date: 2024-10-27
+description: "Learn how to integrate Spotify's API to display your currently playing music on your Next.js portfolio with a beautiful animated component."
+image: "/icons/spotify.png"
+---
+
+# Building a Spotify Now Playing Widget for Your Portfolio
+
+Ever visited a developer's portfolio and noticed a cool widget showing what music they're currently listening to on Spotify? It's a personal touch that adds character to your site and lets visitors get a glimpse into your taste. Let's build one using Next.js 15, TypeScript, and the Spotify Web API.
+
+In this guide, we'll create a fully functional Spotify integration that:
+- Fetches your currently playing track in real-time
+- Displays album art, song title, and artist
+- Shows a beautiful loading state and offline status
+- Auto-updates every 30 seconds
+- Uses proper TypeScript types and error handling
+
+## Prerequisites
+
+- A Next.js project (App Router)
+- A Spotify account
+- Node.js and npm/yarn/bun installed
+
+## Step 1: Create Your Spotify Application
+
+First, we need to set up a Spotify application to get API credentials.
+
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+2. Click **Create an App**
+3. Fill out the name and description
+4. Click **Show Client Secret**
+5. Save both your **Client ID** and **Client Secret**
+6. Click **Edit Settings**
+7. Add `http://localhost:3000` as a redirect URI
+
+## Step 2: Set Up Authentication
+
+Since we only need to grant permission once, we'll use the **Authorization Code Flow** to get a refresh token.
+
+Visit this URL (replace `YOUR_CLIENT_ID` with your actual client ID):
+
+```
+https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http://localhost:3000&scope=user-read-currently-playing
+```
+
+After authorizing, you'll be redirected to your callback URL with a `code` parameter:
+```
+http://localhost:3000/callback?code=YOUR_CODE_HERE
+```
+
+Save this code value. Now, generate a Base64 encoded string from your client ID and secret in the format `client_id:client_secret`. You can use an online tool or run this in your terminal:
+
+```bash
+echo -n "CLIENT_ID:CLIENT_SECRET" | base64
+```
+
+Next, exchange the authorization code for a refresh token using curl:
+
+```bash
+curl -H "Authorization: Basic YOUR_BASE64_STRING" \
+  -d grant_type=authorization_code \
+  -d code=YOUR_CODE \
+  -d redirect_uri=http://localhost:3000 \
+  https://accounts.spotify.com/api/token
+```
+
+The response will contain a `refresh_token` that never expires (unless you revoke access). Save this securely.
+
+## Step 3: Environment Variables
+
+Create a `.env.local` file in your project root:
+
+```env
+SPOTIFY_CLIENT_ID=your_client_id_here
+SPOTIFY_CLIENT_SECRET=your_client_secret_here
+SPOTIFY_REFRESH_TOKEN=your_refresh_token_here
+```
+
+**Important:** Never commit these values to git. Add `.env.local` to your `.gitignore`.
+
+## Step 4: Backend API Route
+
+Create the API route that handles the Spotify integration:
+
+**`app/api/spotify/route.ts`**
+
+```tsx
+import { NextResponse } from "next/server";
+import { getNowPlaying } from "@/lib/spotify";
+
+export async function GET() {
+  try {
+    const response = await getNowPlaying();
+
+    if (response.status === 204 || response.status > 400) {
+      return NextResponse.json({ isPlaying: false });
+    }
+
+    const song = await response.json();
+    const isPlaying = song.is_playing;
+    const title = song.item.name;
+    const artist = song.item.artists
+      .map((_artist: { name: string }) => _artist.name)
+      .join(", ");
+    const album = song.item.album.name;
+    const albumImageUrl = song.item.album.images[0].url;
+    const songUrl = song.item.external_urls.spotify;
+
+    return NextResponse.json({
+      album,
+      albumImageUrl,
+      artist,
+      isPlaying,
+      songUrl,
+      title,
+    });
+  } catch (error) {
+    console.error("Error fetching Spotify data:", error);
+    return NextResponse.json({ isPlaying: false }, { status: 500 });
+  }
+}
+```
+
+## Step 5: Spotify Library Functions
+
+Create a utility file to handle token management:
+
+**`lib/spotify.ts`**
+
+```tsx
+const {
+  SPOTIFY_CLIENT_ID: client_id,
+  SPOTIFY_CLIENT_SECRET: client_secret,
+  SPOTIFY_REFRESH_TOKEN: refresh_token,
+} = process.env;
+
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
+const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+
+const getAccessToken = async () => {
+  const response = await fetch(TOKEN_ENDPOINT, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${basic}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refresh_token || "",
+    }),
+  });
+
+  return response.json();
+};
+
+export const getNowPlaying = async () => {
+  const { access_token } = await getAccessToken();
+
+  return fetch(NOW_PLAYING_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};
+```
+
+## Step 6: Frontend Component
+
+Now let's create a beautiful, animated component to display the music:
+
+**`components/landing/Spotify.tsx`**
+
+```tsx
+"use client";
+import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import {
+  IconMusic,
+  IconPlayerPlay,
+  IconPlayerPause,
+} from "@tabler/icons-react";
+
+interface SpotifyData {
+  album: string;
+  albumImageUrl: string;
+  artist: string;
+  isPlaying: boolean;
+  songUrl: string;
+  title: string;
+}
+
+const Spotify = () => {
+  const [songData, setSongData] = useState<SpotifyData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNowPlaying = async () => {
+      try {
+        const response = await fetch("/api/spotify");
+        const data = await response.json();
+
+        if (data.isPlaying) {
+          setSongData(data);
+        } else {
+          setSongData(null);
+        }
+      } catch (error) {
+        console.error("Error fetching Spotify data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchNowPlaying();
+    // Update every 30 seconds
+    const interval = setInterval(fetchNowPlaying, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="">
+      {isLoading ? (
+        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-accent/50 h-12 w-12 animate-pulse rounded-md" />
+          <div className="flex flex-1 flex-col gap-1">
+            <div className="bg-accent/50 h-3 w-16 animate-pulse rounded" />
+            <div className="bg-accent/50 h-4 w-32 animate-pulse rounded" />
+            <div className="bg-accent/50 h-3 w-24 animate-pulse rounded" />
+          </div>
+        </div>
+      ) : songData ? (
+        <motion.a
+          href={songData.songUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="bg-accent/30 border-border/50 hover:bg-accent/40 group flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm shadow-inner transition-colors"
+        >
+          {/* Album Art */}
+          <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-md">
+            <Image
+              src={songData.albumImageUrl}
+              alt={`${songData.title} album art`}
+              width={48}
+              height={48}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
+              <IconMusic className="h-5 w-5 text-white" />
+            </div>
+          </div>
+
+          {/* Song Info */}
+          <div className="flex min-w-0 flex-1 flex-col gap-1">
+            <div className="flex items-center gap-2">
+              {songData.isPlaying ? (
+                <>
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-green-500"
+                  >
+                    <IconPlayerPlay className="h-3 w-3" />
+                  </motion.div>
+                  <span className="text-accent-foreground text-xs font-medium">
+                    Now Playing
+                  </span>
+                </>
+              ) : (
+                <>
+                  <IconPlayerPause className="text-accent-foreground h-3 w-3" />
+                  <span className="text-accent-foreground text-xs font-medium">
+                    Paused
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-foreground truncate font-medium">
+                {songData.title}
+              </span>
+              <span className="text-accent-foreground truncate text-xs">
+                {songData.artist}
+              </span>
+            </div>
+          </div>
+        </motion.a>
+      ) : (
+        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-accent/50 flex h-12 w-12 items-center justify-center rounded-md">
+            <IconMusic className="h-6 w-6 text-accent-foreground opacity-60" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-2">
+              <span className="text-accent-foreground text-xs font-medium">
+                Offline
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-accent-foreground font-medium">
+                Not currently listening
+              </span>
+              <span className="text-accent-foreground text-xs">
+                Music activity unavailable
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Spotify;
+```
+
+## Step 7: Usage in Your Page
+
+Now simply import and use the component anywhere in your application:
+
+```tsx
+import Spotify from "@/components/landing/Spotify";
+
+export default function Page() {
+  return (
+    <div>
+      <Spotify />
+      {/* Your other content */}
+    </div>
+  );
+}
+```
+
+## Features Explained
+
+### Auto-Updating
+The component fetches data on mount and then every 30 seconds using `setInterval`, ensuring your music status stays current.
+
+### Loading State
+While fetching initial data, a skeleton loader with shimmer animations provides a smooth user experience.
+
+### Offline State
+When you're not playing music, the component shows a friendly "Offline" message instead of disappearing.
+
+### Interactive Elements
+- Hover effects on the card
+- Clickable link to open the song in Spotify
+- Animated play icon that pulses when music is playing
+- Image overlay on album art
+
+### Error Handling
+The component gracefully handles API errors and network failures, falling back to the offline state.
+
+## Customization
+
+Feel free to customize the styling to match your portfolio's design system. The component uses Tailwind CSS with accent colors, making it easy to theme.
+
+You can also:
+- Adjust the update frequency (currently 30 seconds)
+- Add more information like album name or duration
+- Implement a history of recently played songs
+- Add a visualizer or equalizer animation
+
+## Security Considerations
+
+- Never commit your environment variables
+- Use environment variables in production (e.g., Vercel's environment settings)
+- The refresh token doesn't expire, but you can revoke access anytime in your Spotify account settings
+- Consider implementing rate limiting if you expect high traffic
+
+## Conclusion
+
+You now have a fully functional Spotify integration that adds a personal touch to your portfolio! The component is performant, accessible, and beautifully animated. It's a great way to showcase your personality and let visitors know what vibes you're on while coding.
+
+Want to see it in action? Check out my [portfolio](https://your-portfolio.vercel.app) to see this component live!
+
+Happy coding! 🎵

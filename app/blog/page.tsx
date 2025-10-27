@@ -21,12 +21,12 @@ const AllBlogsPage = async () => {
     <div className="relative min-h-screen">
       <H1>All Blogs</H1>
       <HighLightText>I like to write for community</HighLightText>
-      <div className="border-accent-foreground/10 bg-accent mt-10 flex flex-col gap-10 rounded border p-3">
+      <div className=" mt-10 flex flex-col gap-5 ">
         {(await allBlogs).map((blog, idx) => (
           <Link
             href={`/blog/${blog.slug}`}
             key={idx}
-            className="flex items-center justify-between"
+            className="flex items-center justify-between border-accent-foreground/10 bg-accent rounded border p-3"
           >
             <div className="">
               <h2 className="tracking-tigh text-base font-bold text-neutral-600 dark:text-neutral-200">

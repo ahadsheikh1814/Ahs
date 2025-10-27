@@ -11,12 +11,12 @@ const BlogPreview = async () => {
   const blogs = (await allBlogs).slice(0, 3);
   return (
     <div>
-      <div className="border-accent-foreground/10 bg-accent mt-5 mb-2 flex flex-col gap-10 rounded border p-3">
+      <div className=" mt-5 mb-2 flex flex-col gap-5">
         {blogs.map((blog, idx) => (
           <Link
             href={`/blog/${blog.slug}`}
             key={idx}
-            className="flex md:flex-row flex-col md:items-center md:justify-between"
+            className="flex md:flex-row flex-col md:items-center md:justify-between border-accent-foreground/10 bg-accent rounded border p-3"
           >
             <div className="">
               <h2 className="tracking-tigh text-base font-bold text-neutral-600 dark:text-neutral-200">
