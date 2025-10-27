@@ -48,12 +48,12 @@ const Spotify = () => {
   return (
     <div className="">
       {isLoading ? (
-        <div className="bg-muted/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
-          <div className="bg-muted/50 h-12 w-12 animate-pulse rounded-md" />
+        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-accent/50 h-12 w-12 animate-pulse rounded-md" />
           <div className="flex flex-1 flex-col gap-1">
-            <div className="bg-muted/50 h-3 w-16 animate-pulse rounded" />
-            <div className="bg-muted/50 h-4 w-32 animate-pulse rounded" />
-            <div className="bg-muted/50 h-3 w-24 animate-pulse rounded" />
+            <div className="bg-accent/50 h-3 w-16 animate-pulse rounded" />
+            <div className="bg-accent/50 h-4 w-32 animate-pulse rounded" />
+            <div className="bg-accent/50 h-3 w-24 animate-pulse rounded" />
           </div>
         </div>
       ) : songData ? (
@@ -64,7 +64,7 @@ const Spotify = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-muted/30 border-border/50 hover:bg-muted/40 group flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm shadow-inner transition-colors"
+          className="bg-accent/30 border-border/50 hover:bg-accent/40 group flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm shadow-inner transition-colors"
         >
           {/* Album Art */}
           <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-md">
@@ -92,14 +92,14 @@ const Spotify = () => {
                   >
                     <IconPlayerPlay className="h-3 w-3" />
                   </motion.div>
-                  <span className="text-muted-foreground text-xs font-medium">
+                  <span className="text-acbg-accent-foreground text-xs font-medium">
                     Now Playing
                   </span>
                 </>
               ) : (
                 <>
-                  <IconPlayerPause className="text-muted-foreground h-3 w-3" />
-                  <span className="text-muted-foreground text-xs font-medium">
+                  <IconPlayerPause className="text-acbg-accent-foreground h-3 w-3" />
+                  <span className="text-acbg-accent-foreground text-xs font-medium">
                     Paused
                   </span>
                 </>
@@ -109,36 +109,36 @@ const Spotify = () => {
               <span className="text-foreground truncate font-medium">
                 {songData.title}
               </span>
-              <span className="text-muted-foreground truncate text-xs">
+              <span className="text-acbg-accent-foreground truncate text-xs">
                 {songData.artist}
               </span>
             </div>
           </div>
         </motion.a>
       ) : (
-        <div className="bg-muted/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
-          <div className="bg-muted/50 flex h-12 w-12 items-center justify-center rounded-md">
+        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-accent/50 flex h-12 w-12 items-center justify-center rounded-md">
             <Image
               alt="Spotify"
               loading="lazy"
-              width={24}
-              height={24}
+              width={30}
+              height={30}
               decoding="async"
-              className="opacity-50"
-              src="/icons/spotify.webp"
+              className="opacity-60"
+              src="/icons/spotify.png"
             />
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
-              <span className="text-muted-foreground text-xs font-medium">
+              <span className="text-acbg-accent-foreground text-xs font-medium">
                 Offline
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="text-muted-foreground font-medium">
+              <span className="text-acbg-accent-foreground font-medium">
                 Not currently listening
               </span>
-              <span className="text-muted-foreground text-xs">
+              <span className="text-acbg-accent-foreground text-xs">
                 Music activity unavailable
               </span>
             </div>
