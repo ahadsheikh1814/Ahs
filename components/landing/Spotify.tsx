@@ -1,8 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { IconMusic } from "@tabler/icons-react";
+import {
+  IconMusic,
+  IconPlayerPlay,
+  IconPlayerPause,
+} from "@tabler/icons-react";
 
 interface SpotifyData {
   album: string;
@@ -22,9 +26,11 @@ const Spotify = () => {
       try {
         const response = await fetch("/api/spotify");
         const data = await response.json();
-        
+
         if (data.isPlaying) {
           setSongData(data);
+        } else {
+          setSongData(null);
         }
       } catch (error) {
         console.error("Error fetching Spotify data:", error);
@@ -34,100 +40,113 @@ const Spotify = () => {
     };
 
     fetchNowPlaying();
-    const interval = setInterval(fetchNowPlaying, 30000); // Update every 30 seconds
+    const interval = setInterval(fetchNowPlaying, 30000);
 
     return () => clearInterval(interval);
   }, []);
 
-  if (isLoading) return null;
-  if (!songData?.isPlaying) return null;
-
   return (
-    <AnimatePresence>
-      <motion.a
-        href={songData.songUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3 }}
-        className="group fixed bottom-8 left-8 z-50 flex items-center gap-3 rounded-full border border-gray-200 bg-white/80 px-4 py-2 shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:shadow-xl dark:border-gray-700 dark:bg-gray-900/80"
-      >
-        {/* Album Art */}
-        <motion.div
-          className="relative h-10 w-10 overflow-hidden rounded-full"
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src={songData.albumImageUrl}
-            alt={`${songData.title} album art`}
-            width={40}
-            height={40}
-            className="h-full w-full object-cover"
-          />
-          {/* Animated equalizer bars */}
-          <div className="absolute inset-0 flex items-center justify-center gap-0.5 bg-black/30">
-            <motion.div
-              className="h-3 w-0.5 bg-white"
-              animate={{ height: ["8px", "12px", "8px"] }}
-              transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
-            />
-            <motion.div
-              className="h-3 w-0.5 bg-white"
-              animate={{ height: ["10px", "14px", "10px"] }}
-              transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-            />
-            <motion.div
-              className="h-3 w-0.5 bg-white"
-              animate={{ height: ["8px", "12px", "8px"] }}
-              transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-            />
+    <div className="">
+      {isLoading ? (
+        <div className="bg-muted/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-muted/50 h-12 w-12 animate-pulse rounded-md" />
+          <div className="flex flex-1 flex-col gap-1">
+            <div className="bg-muted/50 h-3 w-16 animate-pulse rounded" />
+            <div className="bg-muted/50 h-4 w-32 animate-pulse rounded" />
+            <div className="bg-muted/50 h-3 w-24 animate-pulse rounded" />
           </div>
-        </motion.div>
-
-        {/* Song Info */}
-        <div className="flex flex-col">
-          <div className="flex items-center gap-2">
-            <IconMusic className="h-3 w-3 text-green-500" />
-            <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
-              Now Playing
-            </span>
-          </div>
-          <span className="max-w-[200px] truncate text-sm font-semibold text-gray-900 dark:text-white">
-            {songData.title}
-          </span>
-          <span className="max-w-[200px] truncate text-xs text-gray-600 dark:text-gray-400">
-            {songData.artist}
-          </span>
         </div>
-
-        {/* External Link Icon */}
-        <motion.div
-          className="text-gray-400 opacity-0 transition-opacity group-hover:opacity-100"
-          whileHover={{ x: 2 }}
+      ) : songData ? (
+        <motion.a
+          href={songData.songUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="bg-muted/30 border-border/50 hover:bg-muted/40 group flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm shadow-inner transition-colors"
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 4L4 12M4 12H11M4 12V5"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          {/* Album Art */}
+          <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-md">
+            <Image
+              src={songData.albumImageUrl}
+              alt={`${songData.title} album art`}
+              width={48}
+              height={48}
+              className="h-full w-full object-cover"
             />
-          </svg>
-        </motion.div>
-      </motion.a>
-    </AnimatePresence>
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
+              <IconMusic className="h-5 w-5 text-white" />
+            </div>
+          </div>
+
+          {/* Song Info */}
+          <div className="flex min-w-0 flex-1 flex-col gap-1">
+            <div className="flex items-center gap-2">
+              {songData.isPlaying ? (
+                <>
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-green-500"
+                  >
+                    <IconPlayerPlay className="h-3 w-3" />
+                  </motion.div>
+                  <span className="text-muted-foreground text-xs font-medium">
+                    Now Playing
+                  </span>
+                </>
+              ) : (
+                <>
+                  <IconPlayerPause className="text-muted-foreground h-3 w-3" />
+                  <span className="text-muted-foreground text-xs font-medium">
+                    Paused
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-foreground truncate font-medium">
+                {songData.title}
+              </span>
+              <span className="text-muted-foreground truncate text-xs">
+                {songData.artist}
+              </span>
+            </div>
+          </div>
+        </motion.a>
+      ) : (
+        <div className="bg-muted/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+          <div className="bg-muted/50 flex h-12 w-12 items-center justify-center rounded-md">
+            <Image
+              alt="Spotify"
+              loading="lazy"
+              width={24}
+              height={24}
+              decoding="async"
+              className="opacity-50"
+              src="/icons/spotify.webp"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-2">
+              <span className="text-muted-foreground text-xs font-medium">
+                Offline
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-muted-foreground font-medium">
+                Not currently listening
+              </span>
+              <span className="text-muted-foreground text-xs">
+                Music activity unavailable
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
 export default Spotify;
-

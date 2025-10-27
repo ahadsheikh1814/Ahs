@@ -6,7 +6,8 @@ const nextConfig: NextConfig = {
   transpilePackages:["next-mdx-remote"],
   images: {
     domains: [
-      'i.pinimg.com'
+      'i.pinimg.com',
+      'i.scdn.co'
     ],
   },
 };

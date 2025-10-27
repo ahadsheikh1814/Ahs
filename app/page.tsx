@@ -11,9 +11,11 @@ const page = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <Spotify/>
       <div className="mt-10">
-      <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
+        <Spotify />
+      </div>
+      <div className="mt-10">
+        <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
           Projects
         </h1>
       </div>
@@ -34,8 +36,9 @@ const page = () => {
       <div className="mt-3 flex w-full justify-center">
         <SeeMoreBtn link="/projects">See More</SeeMoreBtn>
       </div>
+      
       <div className="mt-10">
-      <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
+        <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
           Blogs
         </h1>
       </div>
@@ -49,6 +52,7 @@ const page = () => {
           <Tech />
         </div>
       </div>
+      
     </div>
   );
 };

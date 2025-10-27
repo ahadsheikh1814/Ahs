@@ -6,7 +6,6 @@ import Navbar from "@/components/layout/Navbar";
 import Container from "@/components/layout/Container";
 import MsgBtn from "@/components/messages/MsgBtn";
 import Footer from "@/components/layout/Footer";
-import Spotify from "@/components/landing/Spotify";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,7 +36,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MsgBtn/>
-          <Spotify />
             <Navbar />
           <Container>
             {children}
