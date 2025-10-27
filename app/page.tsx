@@ -5,11 +5,13 @@ import { Projects } from "@/lib/projects";
 import BlogPreview from "@/components/landing/BlogPreview";
 import SeeMoreBtn from "@/components/elements/SeeMoreBtn";
 import Tech from "@/components/landing/Tech";
+import Spotify from "@/components/landing/Spotify";
 
 const page = () => {
   return (
     <div className="min-h-screen">
       <Hero />
+      <Spotify/>
       <div className="mt-10">
       <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
           Projects

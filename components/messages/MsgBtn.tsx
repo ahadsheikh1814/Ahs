@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { MessageSquareShare, X, Send, User, Mail, MessageSquare } from "lucide-react";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 const MsgBtn = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
