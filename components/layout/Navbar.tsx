@@ -21,10 +21,6 @@ const NavLinks: navLink[] = [
     title: "Blog",
     href: "/blog",
   },
-  // {
-  //   title: "Snippets",
-  //   href: "/snippets",
-  // },
   {
     title: "Resources",
     href: "/resources",
@@ -32,6 +28,10 @@ const NavLinks: navLink[] = [
   {
     title: "Projects",
     href: "/projects",
+  },
+  {
+    title: "About",
+    href: "/about",
   },
 ];
 

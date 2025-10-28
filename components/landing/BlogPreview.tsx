@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getBlogs } from "@/utils/mdx";
 import SeeMoreBtn from "../elements/SeeMoreBtn";
 
-const truncate = (str: string, n: number) => {
+const truncate = (str: string, n: number) => { 
   return str?.length > n ? str.substring(0, n - 1) + "..." : str;
 };
 const BlogPreview = async () => {
