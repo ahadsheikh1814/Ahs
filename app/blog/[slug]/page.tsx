@@ -43,6 +43,7 @@ const SingleBlogPage = async ({ params }: Props) => {
   let singleBlog = ''
   try {
     singleBlog = await fs.readFile(filePath, 'utf-8')
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return <div>Blog post not found.</div>
   }

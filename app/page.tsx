@@ -6,6 +6,7 @@ import BlogPreview from "@/components/landing/BlogPreview";
 import SeeMoreBtn from "@/components/elements/SeeMoreBtn";
 import Tech from "@/components/landing/Tech";
 import Spotify from "@/components/landing/Spotify";
+import CtaBtn from "@/components/landing/CtaBtn";
 
 const page = () => {
   return (
@@ -52,7 +53,7 @@ const page = () => {
           <Tech />
         </div>
       </div>
-      
+      <CtaBtn/>
     </div>
   );
 };
