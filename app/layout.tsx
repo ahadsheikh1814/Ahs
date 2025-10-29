@@ -28,6 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Ahref - */}
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="30Lno/g3E8Kntz1N4m8amA"
+          async
+        ></script>
+        {/* - Ahref */}
+      </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -35,11 +44,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MsgBtn/>
-            <Navbar />
+          <MsgBtn />
+          <Navbar />
           <Container>
             {children}
-            <Footer/>
+            <Footer />
           </Container>
         </ThemeProvider>
       </body>
