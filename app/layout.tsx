@@ -36,6 +36,12 @@ export default function RootLayout({
           async
         ></script>
         {/* - Ahref */}
+        {/* google serch console - */}
+        <meta
+          name="google-site-verification"
+          content="f8sGcHre4r-fcTDQVnnND06gJ2Cm0ji45B0bkNdbKw4"
+        />
+        {/* - google serch console */}
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider
