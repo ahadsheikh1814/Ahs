@@ -22,5 +22,19 @@ export const Projects:project[] = [
         link:"https://ahs-lab.vercel.app",
         LandImg:"/AhsLab.webp",
         GitDir:"https://github.com/ahadsheikh1814/AHs-Lab"
-    }
+    },
+    {
+        title:"Treefy",
+        description:"All your links. One smart tree. — Share everything you create with one simple Treefy link.",
+        imgUrl:"/treefy.webp",
+        tech:[
+            "tailwind css",
+            "Next js",
+            "prisma",
+            "clerk",
+        ],
+        link:"https://treefy-three.vercel.app/",
+        LandImg:"/treefy.png",
+        GitDir:"https://github.com/ahadsheikh1814/Treefy"
+    },
 ]
