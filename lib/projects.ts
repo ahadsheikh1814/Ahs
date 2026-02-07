@@ -34,7 +34,7 @@ export const Projects:project[] = [
             "clerk",
         ],
         link:"https://treefy-three.vercel.app/",
-        LandImg:"/treefy.png",
+        LandImg:"/treefyhero.png",
         GitDir:"https://github.com/ahadsheikh1814/Treefy"
     },
 ]
