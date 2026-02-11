@@ -30,6 +30,7 @@ const ProjectCards = ({
         className={cn(
           "relative flex h-96  flex-col items-start rounded",
           "transition-all duration-100 ease-in-out",
+          "sm:shadow-[var(--shadow-ahs)]"
         )}
         style={{
           boxShadow: isHovered ? 'var(--shadow-ahs)' : 'none'
@@ -38,8 +39,7 @@ const ProjectCards = ({
         <div className={cn(
           "h-[50%] w-full overflow-hidden rounded",
           "z-10 group-hover:scale-103",
-          "transition-all duration-100 ease-in-out"
-          
+          "transition-all duration-100 ease-in-out"          
         )}>
           <Image
             src={LandImg}
@@ -49,7 +49,7 @@ const ProjectCards = ({
             className="h-full w-full object-cover object-top-left"
           />
         </div>
-        <div className="my-4 group-hover:mx-4 transition-all duration-100 ease-in-out">
+        <div className="my-4 group-hover:mx-4 transition-all duration-100 ease-in-out sm:mx-4">
           <div className="flex items-center gap-2">
             <div className="-mt-1 h-6 w-6 overflow-hidden rounded">
               <Image

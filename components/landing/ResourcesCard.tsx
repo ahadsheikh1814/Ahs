@@ -19,7 +19,7 @@ const ResourcesCard = ({
     <div className="relative h-full w-full">
       <div
         onClick={()=>router.push(link)}
-        className="relative flex cursor-pointer flex-col items-start rounded border border-neutral-300 p-4 dark:border-gray-800"
+        className="relative flex cursor-pointer flex-col items-start rounded border border-neutral-300 p-4 dark:border-neutral-800"
       >
         <div>
           <h4 className="text-neutral-600 dark:text-neutral-300 w-full justify-between items-center flex">{linkText}

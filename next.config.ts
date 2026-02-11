@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       'i.pinimg.com',
-      'i.scdn.co'
+      'i.scdn.co',
+      'ghchart.rshah.org'
     ],
   },
 };

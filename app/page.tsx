@@ -7,6 +7,7 @@ import SeeMoreBtn from "@/components/elements/SeeMoreBtn";
 import Tech from "@/components/landing/Tech";
 import Spotify from "@/components/landing/Spotify";
 import CtaBtn from "@/components/landing/CtaBtn";
+import GithubActivity from "@/components/landing/github-activity";
 
 const page = () => {
   return (
@@ -37,7 +38,14 @@ const page = () => {
       <div className="mt-3 flex w-full justify-center">
         <SeeMoreBtn link="/projects">See More</SeeMoreBtn>
       </div>
-      
+
+      <div className="mt-10">
+        <h1 className='text-primary/80 dark:text-primary/90 text-2xl font-semibold'>
+          Github Activity
+        </h1>
+      </div>
+      <GithubActivity />
+
       <div className="mt-10">
         <h1 className="text-primary/80 dark:text-primary/90 text-2xl font-semibold">
           Blogs
@@ -53,7 +61,7 @@ const page = () => {
           <Tech />
         </div>
       </div>
-      <CtaBtn/>
+      <CtaBtn />
     </div>
   );
 };
