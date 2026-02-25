@@ -206,6 +206,13 @@
   }
 }
 
+@layer utilities {
+  /* ensure we can apply manrope via Tailwind class */
+  .font-manrope {
+    font-family: var(--font-manrope) !important;
+  }
+}
+
 /* Blog Typography - Minimal & Professional */
 .blog {
   @apply leading-relaxed;

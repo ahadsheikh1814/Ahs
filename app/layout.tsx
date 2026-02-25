@@ -12,6 +12,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
   title: "Ahad Sheikh",
   description: "Personal website of Ahad Sheikh, a web devloper.",

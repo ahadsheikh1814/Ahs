@@ -5,10 +5,11 @@ const nextConfig: NextConfig = {
   /* config options here */
   transpilePackages:["next-mdx-remote"],
   images: {
-    domains: [
-      'i.pinimg.com',
-      'i.scdn.co',
-      'ghchart.rshah.org'
+    remotePatterns: [
+      { protocol: 'https', hostname: 'i.pinimg.com' },
+      { protocol: 'https', hostname: 'i.scdn.co' },
+      { protocol: 'https', hostname: 'ghchart.rshah.org' },
+      { protocol: 'https', hostname: '*.fbcdn.net' },
     ],
   },
 };
