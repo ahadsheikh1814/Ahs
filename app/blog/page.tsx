@@ -15,35 +15,49 @@ const truncate = (str: string, n: number) => {
 };
 
 const AllBlogsPage = async () => {
-  const allBlogs = getBlogs();
-  console.log(await allBlogs);
+  const blogs = await getBlogs(); // Fix: removed debug console.log, await once
+
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen"> {/* Fix: removed pointless relative */}
       <H1>All Blogs</H1>
       <HighLightText>I like to write for community</HighLightText>
-      <div className=" mt-10 flex flex-col gap-5 ">
-        {(await allBlogs).map((blog, idx) => (
+
+      <div className="mt-10 flex flex-col gap-3">
+        {blogs.map((blog, idx) => (
           <Link
             href={`/blog/${blog.slug}`}
             key={idx}
-            className="flex items-center justify-between border-accent-foreground/10 bg-accent rounded border p-3"
+            // Fix: flex-col on mobile, flex-row on md+; hover state; correct border/bg
+            className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between
+              border border-neutral-200 dark:border-neutral-700
+              bg-neutral-50 dark:bg-neutral-800/50
+              rounded-lg p-4
+              transition-colors duration-200
+              hover:bg-neutral-100 dark:hover:bg-neutral-800"
           >
-            <div className="">
-              <h2 className="tracking-tigh text-base font-bold text-neutral-600 dark:text-neutral-200">
+            {/* Left: title + description */}
+            <div className="flex flex-col gap-1 min-w-0"> {/* Fix: min-w-0 prevents overflow */}
+              <h2 className="tracking-tight text-sm font-semibold text-neutral-800 dark:text-neutral-100 leading-snug">
+                {/* Fix: tracking-tight typo fixed */}
                 {blog.title}
               </h2>
-              <p className="pt-2 text-sm text-neutral-600 md:text-base dark:text-neutral-200">
-                {truncate(blog.description || "", 50)}
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                {/* Fix: 100 chars on full page gives more context than 50 */}
+                {truncate(blog.description || "", 100)}
               </p>
             </div>
-            <h2 className="pt-4 text-sm text-neutral-600 md:text-base dark:text-neutral-200">
+
+            {/* Fix: <time> element, shrink-0, no conflicting pt-4, no weekday */}
+            <time
+              dateTime={blog.date}
+              className="shrink-0 text-xs text-neutral-400 dark:text-neutral-500 md:text-right"
+            >
               {new Date(blog.date || new Date()).toLocaleDateString("en-us", {
-                weekday: "long",
                 year: "numeric",
                 month: "short",
                 day: "numeric",
               })}
-            </h2>
+            </time>
           </Link>
         ))}
       </div>

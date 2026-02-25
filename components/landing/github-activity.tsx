@@ -2,19 +2,23 @@ import React from 'react'
 import Image from 'next/image'
 
 const GithubActivity = () => {
-    return (
-        <div className='mt-5 relative  p-2 sm:p-4 md:p-6 overflow-hidden bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border text-sm shadow-inner'>
-            <Image
-
-                className='w-full'
-                src="https://ghchart.rshah.org/ahadsheikh1814"
-                alt="GitHub contribution graph"
-                width={1000}
-                height={200}
-                unoptimized
-            />
-        </div>
-    )
+  return (
+    <div className="mt-5 p-3 sm:p-4 overflow-hidden bg-neutral-50 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700 rounded-lg">
+      
+      {/* Fix: relative wrapper with explicit aspect ratio so image scales correctly */}
+      <div className="relative w-full h-auto min-h-[80px] sm:min-h-[120px]">
+        <Image
+          src="https://ghchart.rshah.org/ahadsheikh1814"
+          alt="GitHub contribution graph"
+          width={1000}
+          height={200}
+          // Fix: w-full h-auto lets the image scale naturally within the container
+          className="w-full h-auto"
+          unoptimized
+        />
+      </div>
+    </div>
+  )
 }
 
-export default GithubActivity;
+export default GithubActivity
