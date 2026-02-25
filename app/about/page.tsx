@@ -78,7 +78,7 @@ const Page = () => {
         <div className="flex-1 px-5 pt-8 md:px-10 md:pt-10">
           <h1 className="text-3xl leading-none font-[700] tracking-tight sm:text-4xl">
             3+ Years <br />
-            Building Modern Web Experiences.
+            Building on the Web.
           </h1>
 
           <p className="mt-6 max-w-prose text-sm leading-relaxed font-medium tracking-tight text-neutral-700 md:mt-10 dark:text-neutral-300">
