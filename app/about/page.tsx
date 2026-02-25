@@ -13,17 +13,14 @@ import React from "react";
 const Page = () => {
   return (
     <div className="flex flex-col gap-10 md:gap-20">
-      
       {/* CursorFollower */}
       <div className="hidden md:block">
         <CursorFollower />
       </div>
 
-      <div className="flex w-full flex-col md:flex-row relative overflow-hidden">
-        
+      <div className="relative flex w-full flex-col overflow-hidden md:flex-row">
         {/* Left column */}
-        <div className="flex-1 border-b border-neutral-200 dark:border-neutral-700 md:border-b-0 md:border-r px-5 pt-8 pb-8 md:pl-0 md:pr-10 md:pt-10 md:pb-10">
-          
+        <div className="flex-1 border-b border-neutral-200 px-5 pt-8 pb-8 md:border-r md:border-b-0 md:pt-10 md:pr-10 md:pb-10 md:pl-0 dark:border-neutral-700">
           <h2 className="text-xl font-[600] tracking-tighter">
             Who&apos;s behind <br />
             the screen?
@@ -37,12 +34,11 @@ const Page = () => {
           </div>
 
           {/* Social icons */}
-          <h3 className="mt-8 md:mt-10 pb-1 text-xs font-medium tracking-tight text-neutral-600 dark:text-neutral-300">
+          <h3 className="mt-8 pb-1 text-xs font-medium tracking-tight text-neutral-600 md:mt-10 dark:text-neutral-300">
             Socials
           </h3>
 
           <div className="flex items-center gap-3">
-
             <a
               href="https://x.com/AhadSheikh1814_"
               target="_blank"
@@ -75,31 +71,27 @@ const Page = () => {
                 className="h-full w-full object-cover"
               />
             </a>
-
           </div>
         </div>
 
         {/* Right column */}
         <div className="flex-1 px-5 pt-8 md:px-10 md:pt-10">
-
-          <h1 className="text-3xl sm:text-4xl leading-none font-[700] tracking-tight">
-            Over 10 years <br />
-            in the game.
+          <h1 className="text-3xl leading-none font-[700] tracking-tight sm:text-4xl">
+            3+ Years <br />
+            Building Modern Web Experiences.
           </h1>
 
-          <p className="mt-6 md:mt-10 text-sm leading-relaxed font-medium tracking-tight text-neutral-700 dark:text-neutral-300 max-w-prose">
-            Crafting pixels and playing with designs is my kind of fun. UI
-            Designer at Riotters&apos;.
+          <p className="mt-6 max-w-prose text-sm leading-relaxed font-medium tracking-tight text-neutral-700 md:mt-10 dark:text-neutral-300">
+            I build clean and interactive web experiences with a focus on
+            performance and detail.
             <br />
-            <br />
-            I obsess over the details, &apos;cause that&apos;s what turns good
-            into great. Mixing styles, stirring in dynamic animations, and
-            always staying ahead of trends — I bring the clean, sharp look your
-            brand needs to stand out.
+            <br />I care about the small details — that&apos;s what makes great
+            products stand out. I build modern web experiences with clean UI,
+            smooth animations, and performance in mind.
           </p>
 
           {/* View projects */}
-          <div className="group mt-8 md:mt-10 flex w-fit cursor-pointer items-center text-sm">
+          <div className="group mt-8 flex w-fit cursor-pointer items-center text-sm md:mt-10">
             <Link
               href="/project"
               className="flex items-center gap-1 transition-all duration-300"
@@ -108,13 +100,10 @@ const Page = () => {
               <IconArrowRight className="h-4 w-4 translate-x-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
             </Link>
           </div>
-
         </div>
-
       </div>
 
       <QuoteCard />
-
     </div>
   );
 };
