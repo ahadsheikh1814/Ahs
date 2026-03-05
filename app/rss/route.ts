@@ -16,6 +16,7 @@ export async function GET() {
         "Discover AHs Lab, a curated collection of accessible, high-performance React components designed specifically for Next.js RSC applications.",
       url: "https://ahadsheikh.vercel.app/blog/AHs-Lab",
       date: new Date("2025-10-26"),
+      image: "https://ahadsheikh.vercel.app/AhsLab.webp",
     },
     {
       title: "Building a Spotify Now Playing Widget for Your Portfolio",
@@ -23,6 +24,7 @@ export async function GET() {
         "Learn how to integrate Spotify's API to display your currently playing music on your Next.js portfolio with a beautiful animated component.",
       url: "https://ahadsheikh.vercel.app/blog/Spotify",
       date: new Date("2025-10-27"),
+      image: "https://ahadsheikh.vercel.app/icons/spotify.png",
     },
   ];
 
@@ -32,6 +34,7 @@ export async function GET() {
       description: post.description,
       url: post.url,
       date: post.date,
+      enclosure: { url: post.image, type: "image/png" }, // ✅ Adds image for RSS readers
     });
   });
 
