@@ -1,0 +1,51 @@
+# Ahad Sheikh - Portfolio
+
+> Frontend Developer Specializing in Interactive UI & Performance
+
+# Website
+https://ahadsheikh.vercel.app
+
+# Important Pages
+https://ahadsheikh.vercel.app - Homepage
+https://ahadsheikh.vercel.app/about - About page
+https://ahadsheikh.vercel.app/projects - Projects showcase
+https://ahadsheikh.vercel.app/blog - Blog posts
+https://ahadsheikh.vercel.app/resources - Resources
+https://ahadsheikh.vercel.app/contact - Contact information
+
+# Projects
+
+## AHs Lab
+https://ahs-lab.vercel.app
+UI Components for Developers. Cut boilerplate, ship faster with AHs Lab.
+Technologies: Motion, Tailwind CSS, Next.js, shadcn/ui
+Source: https://github.com/ahadsheikh1814/AHs-Lab
+
+## Treefy
+https://treefy-three.vercel.app/
+All your links. One smart tree. Share everything you create with one simple Treefy link.
+Technologies: Tailwind CSS, Next.js, Prisma, Clerk
+Source: https://github.com/ahadsheikh1814/Treefy
+
+# Blog Posts
+https://ahadsheikh.vercel.app/blog/AHs-Lab - Introducing AHs Lab: A Modern Component Library for Next.js (Oct 26, 2025)
+https://ahadsheikh.vercel.app/blog/Spotify - Building a Spotify Now Playing Widget for Your Portfolio (Oct 27, 2025)
+
+# Technologies & Tools
+- Next.js - https://nextjs.org/
+- React - https://react.dev/
+- TypeScript - https://www.typescriptlang.org/
+- Tailwind CSS - https://tailwindcss.com/
+- Vercel - https://vercel.com/
+- Bun - https://bun.sh/
+
+# Author Information
+Name: Ahad Sheikh
+Role: Frontend Developer
+Focus: Interactive UI & Performance
+Twitter: https://x.com/AhadSheikh1814_
+Peerlist: https://peerlist.io/ahadsheikh
+GitHub: https://github.com/ahadsheikh1814
+
+# About
+Ahad Sheikh is a frontend developer specializing in interactive UI and performance optimization. He is the creator of AHs Lab, a modern component library for Next.js developers. His work focuses on building accessible, high-performance React components and tools that help developers ship faster.
