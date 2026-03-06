@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ahadsheikh.vercel.app
+
+# Sitemaps
+Sitemap: https://ahadsheikh.vercel.app/sitemap.xml

@@ -12,14 +12,40 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Ahad Sheikh",
   description: "Personal website of Ahad Sheikh, a web devloper.",
+  keywords: [
+    "Ahad Sheikh",
+    "Ahad Sheikh developer",
+    "Frontend Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Web Developer Portfolio",
+  ],
+  authors: [{ name: "Ahad Sheikh" }],
+  creator: "Ahad Sheikh",
+  metadataBase: new URL("https://ahadsheikh.vercel.app"),
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.webp",
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ahad Sheikh",
+  url: "https://ahadsheikh.vercel.app",
+  jobTitle: "Frontend Developer",
+  sameAs: [
+    "https://github.com/ahadsheikh1814",
+    "https://x.com/AhadSheikh1814_",
+  ],
 };
 
 export default function RootLayout({
@@ -58,6 +84,12 @@ export default function RootLayout({
             <Footer />
           </Container>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </body>
     </html>
   );
