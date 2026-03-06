@@ -34,7 +34,7 @@ export async function GET() {
       description: post.description,
       url: post.url,
       date: post.date,
-      enclosure: { url: post.image, type: "image/png" }, // ✅ Adds image for RSS readers
+      enclosure: { url: post.image, type: "image/png" },
     });
   });
 
