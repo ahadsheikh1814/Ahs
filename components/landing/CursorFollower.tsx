@@ -35,6 +35,7 @@ export default function CursorFollower() {
           alt="Ahad Sheikh"
           fill
           className="object-cover"
+          sizes="(max-width:768px) 100vw, 400px"
         />
       </div>
       {/* Fix: rounded-tl-none to continue the top-left sharp corner theme */}

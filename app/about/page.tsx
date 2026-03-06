@@ -103,7 +103,9 @@ const Page = () => {
         </div>
       </div>
 
-      <QuoteCard />
+      <div className="my-10">
+        <QuoteCard />
+      </div>
     </div>
   );
 };
