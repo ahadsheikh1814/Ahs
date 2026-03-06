@@ -30,6 +30,31 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: "Ahad Sheikh - Frontend Developer",
+    description:
+      "Building AHs Lab and other cool things. Frontend Developer Specializing in Interactive UI & Performance.",
+    url: "https://ahadsheikh.vercel.app",
+    siteName: "Ahad Sheikh",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ahad Sheikh - Frontend Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ahad Sheikh - Frontend Developer",
+    description:
+      "Building AHs Lab and other cool things. Frontend Developer Specializing in Interactive UI & Performance.",
+    images: ["/og-image.png"],
+    creator: "@AhadSheikh1814_",
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-icon.webp",
