@@ -1,23 +1,26 @@
 # Ahad Sheikh - Portfolio
 
 > Frontend Developer Specializing in Interactive UI & Performance
+> Building digital experiences with clean code and thoughtful design
 
 # Website
 https://ahadsheikh.vercel.app
 
 # Important Pages
 https://ahadsheikh.vercel.app - Homepage
-https://ahadsheikh.vercel.app/about - About page
+https://ahadsheikh.vercel.app/about - About page (3+ years experience building on the web)
 https://ahadsheikh.vercel.app/projects - Projects showcase
 https://ahadsheikh.vercel.app/blog - Blog posts
-https://ahadsheikh.vercel.app/resources - Resources
-https://ahadsheikh.vercel.app/contact - Contact information
+https://ahadsheikh.vercel.app/resources - Curated resources and tools
+https://ahadsheikh.vercel.app/contact - Contact form (open to freelancing)
+https://ahadsheikh.vercel.app/ai - AI page
 
 # Projects
 
 ## AHs Lab
 https://ahs-lab.vercel.app
 UI Components for Developers. Cut boilerplate, ship faster with AHs Lab.
+A curated collection of accessible, high-performance React components designed specifically for Next.js developers.
 Technologies: Motion, Tailwind CSS, Next.js, shadcn/ui
 Source: https://github.com/ahadsheikh1814/AHs-Lab
 
@@ -31,21 +34,59 @@ Source: https://github.com/ahadsheikh1814/Treefy
 https://ahadsheikh.vercel.app/blog/AHs-Lab - Introducing AHs Lab: A Modern Component Library for Next.js (Oct 26, 2025)
 https://ahadsheikh.vercel.app/blog/Spotify - Building a Spotify Now Playing Widget for Your Portfolio (Oct 27, 2025)
 
-# Technologies & Tools
+# Technologies & Skills
 - Next.js - https://nextjs.org/
 - React - https://react.dev/
+- JavaScript - https://www.javascript.com/
 - TypeScript - https://www.typescriptlang.org/
 - Tailwind CSS - https://tailwindcss.com/
 - Vercel - https://vercel.com/
 - Bun - https://bun.sh/
 
+# Resources & Tools Used
+
+## UI Components
+- Skiper UI - https://skiper-ui.com - Un-common UI components for shadcn/ui
+- Tailwind Components - https://tailwindcomponents.com - Free Tailwind CSS UI components and templates
+- UIVerse - https://uiverse.io - Beautiful, open-source UI elements made with HTML & CSS
+- Shadcn UI - https://ui.shadcn.com - Official shadcn/ui library for building modern apps
+- Radix UI - https://radix-ui.com - Accessible, unstyled UI components for building React apps
+
+## Icons
+- Heroicons - https://heroicons.com - Free MIT-licensed SVG icons for frontend projects
+- Lucide Icons - https://lucide.dev - A clean and consistent icon toolkit based on Feather Icons
+
+## Design Tools
+- CSS Gradient - https://cssgradient.io - Generator for creating custom CSS gradients
+- Haikei - https://haikei.app - Generate unique SVG shapes, backgrounds, and blobs
+- UIColors - https://uicolors.app - Color palettes & gradients for modern UI design
+
+## Learning & Development
+- Frontend Mentor - https://frontendmentor.io - Real-world coding challenges to improve frontend skills
+- CodeSandbox - https://codesandbox.io - Online code editor to build and share web apps fast
+
 # Author Information
 Name: Ahad Sheikh
 Role: Frontend Developer
 Focus: Interactive UI & Performance
+Experience: 3+ Years Building on the Web
+Tagline: Building AHs Lab and other cool things
+Availability: Open to freelancing offers
+Philosophy: "The expert in anything was once a beginner." — George Savile
+
+# Social Links
 Twitter: https://x.com/AhadSheikh1814_
 Peerlist: https://peerlist.io/ahadsheikh
 GitHub: https://github.com/ahadsheikh1814
 
 # About
-Ahad Sheikh is a frontend developer specializing in interactive UI and performance optimization. He is the creator of AHs Lab, a modern component library for Next.js developers. His work focuses on building accessible, high-performance React components and tools that help developers ship faster.
+Ahad Sheikh is a frontend developer with 3+ years of experience specializing in interactive UI and performance optimization. He builds clean and interactive web experiences with a focus on performance and detail. He is the creator of AHs Lab, a modern component library for Next.js developers. His work focuses on building accessible, high-performance React components and tools that help developers ship faster.
+
+He cares about the small details — that's what makes great products stand out. He builds modern web experiences with clean UI, smooth animations, and performance in mind.
+
+# Additional Information
+- Portfolio inspired by: Manu Arora (https://manuarora.in/)
+- Built with: Next.js
+- Crafted with precision
+- GitHub Activity: Active contributor (https://ghchart.rshah.org/ahadsheikh1814)
+- Copyright: © 2026 Ahad Sheikh. All rights reserved.
