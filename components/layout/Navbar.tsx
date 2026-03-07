@@ -33,6 +33,10 @@ const NavLinks: navLink[] = [
     title: "About",
     href: "/about",
   },
+  {
+    title: "AI",
+    href: "/ai",
+  }
 ];
 
 const Navbar = () => {
@@ -104,6 +108,7 @@ const MobileNav = () => {
       <div className="-mt-1 flex w-full items-center justify-end gap-3 text-sm md:hidden">
         <Link href={"/"}>Home</Link>
         <Link href={"/projects"}>Projects</Link>
+        <Link href={"/ai"}>AI</Link>
         <button onClick={() => setActive(!isActive)} className="z-50">
           {isActive ? (
             <IconX className="cursor-pointer" />

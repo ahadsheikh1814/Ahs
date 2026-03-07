@@ -38,6 +38,7 @@ const Footer = () => {
   const metaLinks = [
     { href: "/llms.txt", label: "llms.txt" },
     { href: "https://manuarora.in/", label: "Inspired by Manu" },
+    { href: "/ai", label: "AI" },
   ];
 
   return (
