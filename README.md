@@ -1,24 +1,28 @@
-## Personal Portfolio
+# Personal Portfolio — Digital Craftsman
 
-A modern, animated developer portfolio built with [Next.js](https://nextjs.org) (App Router).  
-It showcases projects, resources, live Spotify status, GitHub activity, and a production-ready contact form.
+A modern, high-performance developer portfolio built with [Next.js](https://nextjs.org) (App Router).  
+It showcases projects, interactive UI explorations, live activity tracking, and an AI-powered knowledge core.
 
 ## Tech Stack
 
-- **Framework**: Next.js (App Router)  
-- **Language**: TypeScript  
-- **Styling**: Tailwind CSS  
-- **Animations**: Framer Motion  
-- **Icons**: Lucide Icons  
-- **Email**: Resend (for contact form)  
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Motion (framer-motion), GSAP
+- **Icons**: Tabler Icons
+- **Database**: Upstash Redis (for analytics & visitors)
+- **AI**: Groq (Llama 3.3 70B)
+- **Email**: Resend (for contact form)
 
 ## Features
 
-- **Landing page** with featured projects, resources, and smooth section transitions  
-- **GitHub activity** section using a live contribution graph  
-- **Spotify widget** showing current/last played track via `/api/spotify`  
-- **Projects grid** and **resources** cards with responsive, minimal UI  
-- **Floating contact button** that opens an animated message form  
+- **Ahad AI**: A sophisticated digital assistant trained on my professional journey and philosophy.
+- **Visitor Analytics**: Real-time unique visitor counter powered by Upstash Redis.
+- **Landing Page**: Featured projects, resources, and smooth, staggered entrance animations.
+- **GitHub Activity**: Live contribution graph integration.
+- **Spotify Widget**: Real-time "now playing" or "last played" status via `/api/spotify`.
+- **Responsive Design**: Meticulously crafted "Digital Craftsman" UI that adapts perfectly to any screen.
+- **Floating Contact Button**: Interactive, animated form with server-side validation and rate limiting.
 
 ## Getting Started
 
@@ -30,54 +34,34 @@ npm install
 
 # development
 npm run dev
-# or
-bun dev
 ```
 
 Then open `http://localhost:3000` in your browser.
 
-## Contact Form Setup
+## Configuration & Environment
 
-The contact form is wired to a `/api/send` route and includes:
+Create a `.env.local` file in the root and configure the following services:
 
-- Client-side and server-side validation  
-- Rate limiting (5 requests per 15 minutes per IP)  
-- Input sanitization and safe error messages  
-- Animated UI and clear success/error feedback  
-- Email delivery via Resend  
+### 1. Resend (Email)
+- Get your API key from [resend.com](https://resend.com)
+- `RESEND_API_KEY=your_key`
 
-### Environment Variables
+### 2. Upstash (Analytics)
+- Required for the Visitor Counter. Get credentials from [upstash.com](https://upstash.com)
+- `UPSTASH_REDIS_REST_URL=your_url`
+- `UPSTASH_REDIS_REST_TOKEN=your_token`
 
-Create a `.env.local` file in the root of the project and add:
+### 3. Groq (AI Chat)
+- Required for Ahad AI. Get your key from [console.groq.com](https://console.groq.com)
+- `GROQ_API_KEY=your_key`
 
-```bash
-# Required: Get your API key from https://resend.com/api-keys
-RESEND_API_KEY=your_resend_api_key_here
-
-# Optional: Customize the sender email (must be verified in Resend)
-# RESEND_FROM_EMAIL=your-verified-email@yourdomain.com
-
-# Optional: Customize the recipient email
-# RESEND_TO_EMAIL=your-email@example.com
-```
-
-### Setup Steps
-
-1. **Get a Resend API Key**
-   - Sign up at `https://resend.com`
-   - Create a new API key
-   - Add it to `.env.local`
-
-2. **(Optional) Verify Your Domain**
-   - In the Resend dashboard, add and verify your domain  
-   - Update the `from` field in `app/api/send/route.ts` to use your verified domain  
-
-3. **Test the Form**
-   - Start the dev server: `npm run dev`  
-   - Open the site and click the floating message button  
-   - Submit a test message  
+### 4. Spotify (Optional)
+- Create an app on [developer.spotify.com](https://developer.spotify.com)
+- `SPOTIFY_CLIENT_ID=your_id`
+- `SPOTIFY_CLIENT_SECRET=your_secret`
+- `SPOTIFY_REFRESH_TOKEN=your_token`
 
 ## Deployment
 
-The easiest way to deploy this portfolio is on Vercel.  
-See the official Next.js deployment docs: `https://nextjs.org/docs/app/building-your-application/deploying`.
+Optimized for deployment on [Vercel](https://vercel.com).  
+Ensure all environment variables are added to your project settings before building.
