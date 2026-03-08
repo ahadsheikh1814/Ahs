@@ -7,25 +7,26 @@ const ResourcesCard = ({
   link,
   title,
   description,
-  linkText
-}:{
+  linkText,
+}: {
   link: string;
   title: string;
   description: string;
-  linkText?:string;
+  linkText?: string;
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="relative h-full w-full">
       <div
-        onClick={()=>router.push(link)}
+        onClick={() => router.push(link)}
         className="relative flex cursor-pointer flex-col items-start rounded border border-neutral-300 p-4 dark:border-neutral-800"
       >
         <div>
-          <h4 className="text-neutral-600 dark:text-neutral-300 w-full justify-between items-center flex">{linkText}
-          <SquareArrowOutUpRight/>
+          <h4 className="flex w-full items-center justify-between text-neutral-600 dark:text-neutral-300">
+            {linkText}
+            <SquareArrowOutUpRight />
           </h4>
-          <h4 className="text-xl pt-2 font-bold tracking-tight text-gray-900 dark:text-gray-100">
+          <h4 className="pt-2 text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
           </h4>
           <p className="pt-2 leading-6 text-gray-700 dark:text-gray-300">

@@ -48,7 +48,7 @@ const CtaBtn = () => {
               </div>
 
               <span className="relative ml-0 block text-sm font-bold whitespace-nowrap transition-all duration-300 group-hover:ml-4">
-                <Link href={'/contact'}>Contact me</Link>
+                <Link href={"/contact"}>Contact me</Link>
               </span>
             </div>
           </div>

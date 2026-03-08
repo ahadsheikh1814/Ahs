@@ -23,12 +23,7 @@ export function ModeToggle() {
   }
 
   return (
-    <Button
-      variant="none"
-      size="icon"
-      onClick={toggleTheme}
-      className=""
-    >
+    <Button variant="none" size="icon" onClick={toggleTheme} className="">
       {theme === "dark" ? (
         <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
       ) : (

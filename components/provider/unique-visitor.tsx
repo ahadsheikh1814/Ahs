@@ -21,12 +21,12 @@ export default function VisitorCounter() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100/50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700 backdrop-blur-sm w-fit"
+          className="flex w-fit items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100/50 px-3 py-1.5 backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-800/50"
         >
           {/* Pulsing indicator - subtle visual detail */}
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
           </span>
 
           <p className="text-xs font-semibold tracking-tight text-neutral-600 dark:text-neutral-400">

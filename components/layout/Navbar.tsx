@@ -4,7 +4,12 @@ import { ModeToggle } from "../theme/ModeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 
 type navLink = {
@@ -36,7 +41,7 @@ const NavLinks: navLink[] = [
   {
     title: "AI",
     href: "/ai",
-  }
+  },
 ];
 
 const Navbar = () => {
@@ -46,7 +51,7 @@ const Navbar = () => {
 
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
+  useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 20) {
       setScroll(true);
     } else {
@@ -54,15 +59,16 @@ const Navbar = () => {
     }
   });
   return (
-    <motion.nav 
-    animate={{
-      height: scrolled ? "64px":""
-    }}
-    transition={{
-      duration: 0.3,
-      ease: 'easeOut',
-    }}
-    className="bg-background/10 sticky top-0 z-20 mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-2 md:px-5 backdrop-blur-sm">
+    <motion.nav
+      animate={{
+        height: scrolled ? "64px" : "",
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeOut",
+      }}
+      className="bg-background/10 sticky top-0 z-20 mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-2 backdrop-blur-sm md:px-5"
+    >
       <ModeToggle />
       <div className="hidden w-[25rem] items-center justify-center rounded-full py-1 md:flex">
         {NavLinks.map((itm, idx) => (
@@ -77,7 +83,8 @@ const Navbar = () => {
               className={cn(
                 "z-10 text-sm font-semibold",
                 "transition-colors duration-75",
-                pathname === itm.href && "z-10 text-teal-600 hover:text-teal-500",
+                pathname === itm.href &&
+                  "z-10 text-teal-600 hover:text-teal-500",
               )}
             >
               {itm.title}
@@ -102,7 +109,7 @@ export default Navbar;
 
 const MobileNav = () => {
   const [isActive, setActive] = useState<boolean>(false);
-  
+
   return (
     <>
       <div className="-mt-1 flex w-full items-center justify-end gap-3 text-sm md:hidden">
@@ -117,12 +124,19 @@ const MobileNav = () => {
           )}
         </button>
       </div>
-      <AnimatePresence>{isActive && <Menu isActive setActive={setActive} />}</AnimatePresence>
+      <AnimatePresence>
+        {isActive && <Menu isActive setActive={setActive} />}
+      </AnimatePresence>
     </>
   );
 };
 
-const Menu = ({ setActive}:{isActive:boolean, setActive: (value: boolean) => void}) => {
+const Menu = ({
+  setActive,
+}: {
+  isActive: boolean;
+  setActive: (value: boolean) => void;
+}) => {
   const pathname = usePathname();
   return (
     <motion.div
@@ -147,7 +161,11 @@ const Menu = ({ setActive}:{isActive:boolean, setActive: (value: boolean) => voi
     >
       {NavLinks.map((itm, idx) => (
         <div key={idx} className="mt-3">
-          <Link className="relative" href={itm.href} onClick={() => setActive(false)}>
+          <Link
+            className="relative"
+            href={itm.href}
+            onClick={() => setActive(false)}
+          >
             <span
               className={cn(
                 "text-xl font-semibold",

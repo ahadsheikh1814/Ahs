@@ -10,10 +10,10 @@ const Tech = () => {
           key={idx}
           target="_blank"
           rel="noopener noreferrer"
-          className="skill-inner-shadow inline-flex items-center rounded-md border border-dashed border-black/20 bg-black/5 px-2 py-1 text-sm text-black dark:border-white/30 dark:bg-white/15 dark:text-white hover:scale-105 transition-transform"
+          className="skill-inner-shadow inline-flex items-center rounded-md border border-dashed border-black/20 bg-black/5 px-2 py-1 text-sm text-black transition-transform hover:scale-105 dark:border-white/30 dark:bg-white/15 dark:text-white"
           href={item.link}
         >
-          <div className="size-4 flex-shrink-0 flex items-center justify-center">
+          <div className="flex size-4 flex-shrink-0 items-center justify-center">
             <Image
               src={item.icon}
               alt={item.title}

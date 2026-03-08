@@ -25,11 +25,11 @@ export const CopyButton = ({ text, className }: CopyButtonProps) => {
     <button
       onClick={handleCopy}
       className={cn(
-        "inline-flex items-center gap-2 px-3 py-2 text-sm font-medium my-3",
-        "bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700",
-        "border border-neutral-300 dark:border-neutral-600 rounded-md",
+        "my-3 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium",
+        "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700",
+        "rounded-md border border-neutral-300 dark:border-neutral-600",
         "transition-all duration-200 ease-in-out",
-        className
+        className,
       )}
       title={copied ? "Copied!" : "Copy code"}
     >

@@ -1,16 +1,20 @@
-"use client"
-import { motion, useMotionTemplate, useMotionValue } from "motion/react"
-import type { MouseEvent } from "react"
+"use client";
+import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import type { MouseEvent } from "react";
 
-export default function SpotlightCardAnimatedBorder({children}:{children:React.ReactNode}) {
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+export default function SpotlightCardAnimatedBorder({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect()
+    const { left, top } = currentTarget.getBoundingClientRect();
 
-    mouseX.set(clientX - left)
-    mouseY.set(clientY - top)
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
   }
 
   return (
@@ -33,5 +37,5 @@ export default function SpotlightCardAnimatedBorder({children}:{children:React.R
       />
       {children}
     </div>
-  )
+  );
 }

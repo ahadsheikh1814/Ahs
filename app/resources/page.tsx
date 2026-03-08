@@ -6,7 +6,7 @@ import React from 'react'
 
 const resources = () => {
   return (
-    <div>
+    <div className='pb-10'>
       <H1>Resources</H1>
       <div className="flex gap-2"><HighLightText>Websites that help me lot</HighLightText> in my work</div>
       <div className='mt-5 grid gap-10 md:grid-cols-2'>

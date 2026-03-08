@@ -26,12 +26,12 @@ export default function CursorFollower() {
     <motion.div
       style={{ x: springX, y: springY }}
       // Fix: w-44 (valid Tailwind), overflow-hidden to clip image to rounded corners
-      className="fixed top-0 left-0 w-44 pointer-events-none z-50"
+      className="pointer-events-none fixed top-0 left-0 z-50 w-44"
     >
       {/* Fix: relative container with fixed height so image fills it properly */}
       <div className="relative h-52 w-full overflow-hidden rounded-lg rounded-tl-none shadow-lg">
         <Image
-          src="https://scontent.fzyl2-2.fna.fbcdn.net/v/t39.30808-1/595156957_122152686476910455_883881248796474897_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFlaMqWbKvDx9oIam-VwZpPU3HJFC6gIJJTcckULqAgktvL9QVvl-aH41Hg2gGjLRVmTOpinOwUotYxLs2DsWuh&_nc_ohc=o5GuZm_sFS4Q7kNvwEHQwp0&_nc_oc=Adki2w_sveq7lcQ9EXghr4FhlNHUcvPL8WHSv0iUYIjMUGTkcAfMvD123YMlou0OgJM&_nc_zt=24&_nc_ht=scontent.fzyl2-2.fna&_nc_gid=sgw2CA8MHpnA0M5OKuZR2Q&oh=00_AftgAhp3AmT40xZE9VZFUEAr8JNDnlmQNAtYDrkrO5x_BA&oe=69A44FB4"
+          src="https://scontent.fzyl2-2.fna.fbcdn.net/v/t39.30808-6/595156957_122152686476910455_883881248796474897_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFlaMqWbKvDx9oIam-VwZpPU3HJFC6gIJJTcckULqAgktvL9QVvl-aH41Hg2gGjLRVmTOpinOwUotYxLs2DsWuh&_nc_ohc=fmcemEAul_8Q7kNvwEdTmUA&_nc_oc=AdnoF4qfJZDC1vgEiDYL5DUy6Vg8gFI3xuiZJVDJs83P7TLAIrNaYZH9lC0GCUraens&_nc_zt=23&_nc_ht=scontent.fzyl2-2.fna&_nc_gid=TbiKHi298mb541i8WVMZPQ&_nc_ss=8&oh=00_Afz7OUeC6ID18BSqV-MLSvK8aL3-jyH9KCqWQPc4bT32-w&oe=69B2D8C4"
           alt="Ahad Sheikh"
           fill
           className="object-cover"
@@ -39,7 +39,7 @@ export default function CursorFollower() {
         />
       </div>
       {/* Fix: rounded-tl-none to continue the top-left sharp corner theme */}
-      <p className="bg-accent-foreground text-sm text-accent mt-1.5 rounded-xl rounded-tl-none px-3 py-1 font-medium shadow-sm">
+      <p className="bg-accent-foreground text-accent mt-1.5 rounded-xl rounded-tl-none px-3 py-1 text-sm font-medium shadow-sm">
         Ahad Sheikh
       </p>
     </motion.div>

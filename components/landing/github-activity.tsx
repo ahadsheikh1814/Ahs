@@ -1,24 +1,58 @@
-import React from 'react'
-import Image from 'next/image'
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { GitHubCalendar } from "react-github-calendar";
 
 const GithubActivity = () => {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Check initial theme
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+
+    // Watch for theme changes
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "dark" : "light");
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="mt-5 p-3 sm:p-4 overflow-hidden bg-neutral-50 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700 rounded-lg">
-      
-      {/* Fix: relative wrapper with explicit aspect ratio so image scales correctly */}
-      <div className="relative w-full h-auto min-h-[80px] sm:min-h-[120px]">
-        <Image
-          src="https://ghchart.rshah.org/ahadsheikh1814"
-          alt="GitHub contribution graph"
-          width={1000}
-          height={200}
-          // Fix: w-full h-auto lets the image scale naturally within the container
-          className="w-full h-auto"
-          unoptimized
-        />
+    <div className="mt-5 rounded-lg border border-neutral-200 bg-neutral-50 p-4 sm:p-6 dark:border-neutral-700 dark:bg-neutral-800/40">
+      <div className="overflow-x-auto">
+        {mounted ? (
+          <GitHubCalendar
+            username="ahadsheikh1814"
+            blockSize={12}
+            blockMargin={4}
+            fontSize={14}
+            colorScheme={theme}
+            theme={{
+              light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+              dark: ["#262626", "#0e4429", "#006d32", "#26a641", "#39d353"],
+            }}
+          />
+        ) : (
+          <div className="flex h-32 items-center justify-center">
+            <div className="text-neutral-400 dark:text-neutral-600">
+              Loading activity...
+            </div>
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GithubActivity
+export default GithubActivity;

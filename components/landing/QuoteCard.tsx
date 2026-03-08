@@ -2,24 +2,24 @@ import React from "react";
 
 export default function QuoteCard() {
   return (
-    <div className="relative px-6 pt-14 pb-6 border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden">
+    <div className="relative overflow-hidden rounded-xl border border-neutral-200 px-6 pt-14 pb-6 dark:border-neutral-700">
       {/* Decorative quote mark — pushed behind text with z-0 */}
       <svg
         aria-hidden="true"
         width="105"
         height="78"
-        className="absolute top-5 left-5 fill-neutral-100 dark:fill-white/10 z-0"
+        className="absolute top-5 left-5 z-0 fill-neutral-100 dark:fill-white/10"
       >
         <path d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z" />
       </svg>
 
       {/* Fix: z-10 relative ensures text renders above the SVG; removed double quotes from text */}
-      <p className="relative z-10 text-pretty italic font-semibold text-neutral-600 dark:text-neutral-300 leading-relaxed">
+      <p className="relative z-10 leading-relaxed font-semibold text-pretty text-neutral-600 italic dark:text-neutral-300">
         The expert in anything was once a beginner.
       </p>
 
       {/* Fix: replaced broken text-highlight / text-primary/70 with standard Tailwind; added mt-3 for breathing room */}
-      <p className="relative z-10 mt-3 text-right font-medium italic text-neutral-400 dark:text-neutral-500 text-sm">
+      <p className="relative z-10 mt-3 text-right text-sm font-medium text-neutral-400 italic dark:text-neutral-500">
         — George Savile
       </p>
     </div>

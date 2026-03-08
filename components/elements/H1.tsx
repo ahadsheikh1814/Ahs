@@ -16,7 +16,10 @@ const H1 = ({
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className={cn(className, "font-bold text-3xl md:text-4xl tracking-tight mb-2 text-primary drop-shadow-lg")}
+      className={cn(
+        className,
+        "text-primary mb-2 text-3xl font-bold tracking-tight drop-shadow-lg md:text-4xl",
+      )}
     >
       {children}
     </motion.h1>
