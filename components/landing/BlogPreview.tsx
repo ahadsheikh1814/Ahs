@@ -9,7 +9,7 @@ const truncate = (str: string, n: number) => {
 
 const BlogPreview = async () => {
   const allBlogs = getBlogs();
-  const blogs = (await allBlogs).slice(0, 3);
+  const blogs = (await allBlogs).slice(0, 2);
 
   return (
     <div>

@@ -26,6 +26,14 @@ export async function GET() {
       date: new Date("2025-10-27"),
       image: "https://ahadsheikh.vercel.app/icons/spotify.png",
     },
+    {
+      title: "Building a Simple Unique Visitor Counter Widget for Your Portfolio",
+      description:
+        "Learn how to build a simple unique visitor counter widget for your Next.js portfolio to track and display the number of unique visitors to your site.",
+      url: "https://ahadsheikh.vercel.app/blog/Unique-visitor-counter",
+      date: new Date("2026-03-08"),
+      image: "https://ahadsheikh.vercel.app/unique-visitor-counter.png",
+    },
   ];
 
   posts.forEach((post) => {
