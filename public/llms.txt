@@ -33,6 +33,7 @@ Source: https://github.com/ahadsheikh1814/Treefy
 # Blog Posts
 https://ahadsheikh.vercel.app/blog/AHs-Lab - Introducing AHs Lab: A Modern Component Library for Next.js (Oct 26, 2025)
 https://ahadsheikh.vercel.app/blog/Spotify - Building a Spotify Now Playing Widget for Your Portfolio (Oct 27, 2025)
+https://ahadsheikh.vercel.app/blog/Unique-visitor-counter - Building a Real-time Unique Visitor Counter with Next.js and Upstash Redis (March 8, 2026)
 
 # Technologies & Skills
 - Next.js - https://nextjs.org/
@@ -88,5 +89,5 @@ He cares about the small details — that's what makes great products stand out.
 - Portfolio inspired by: Manu Arora (https://manuarora.in/)
 - Built with: Next.js
 - Crafted with precision
-- GitHub Activity: Active contributor (https://ghchart.rshah.org/ahadsheikh1814)
+- GitHub Activity: Active contributor (https://github.com/ahadsheikh1814)
 - Copyright: © 2026 Ahad Sheikh. All rights reserved.
