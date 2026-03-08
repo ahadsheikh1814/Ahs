@@ -73,18 +73,16 @@ const Navbar = () => {
         }}
         className="bg-background/10 sticky top-0 z-20 mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-2 backdrop-blur-sm md:px-5"
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <ModeToggle />
-          <button
-            onClick={() => setCommandOpen(true)}
-            className="hidden cursor-pointer items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 md:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-          >
-            <IconCommand className="h-3.5 w-3.5" />
-            <span>Search</span>
-            <kbd className="ml-1 rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-xs font-medium text-neutral-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-400">
-              ⌘K
-            </kbd>
-          </button>
+          <div className="hidden items-center md:flex">
+            <button
+              onClick={() => setCommandOpen(true)}
+              className="flex items-center justify-center"
+            >
+              <IconCommand className="text-primary/70 h-5 w-5 cursor-pointer" />
+            </button>
+          </div>
         </div>
 
         <div className="hidden w-[25rem] items-center justify-center rounded-full py-1 md:flex">
