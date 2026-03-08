@@ -3,9 +3,27 @@
 import React, { useEffect, useState } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 
-const GithubActivity = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
+type Theme = "light" | "dark";
+
+interface ThemeColors {
+  light: string[];
+  dark: string[];
+}
+
+const GithubActivity: React.FC = () => {
+  const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  const themeColors: ThemeColors = {
+    light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+    dark: ["#262626", "#0e4429", "#006d32", "#26a641", "#39d353"],
+  };
+
+  const scrollbarStyles = {
+    scrollbarWidth: "thin" as const,
+    scrollbarColor:
+      theme === "dark" ? "#404040 transparent" : "#d4d4d4 transparent",
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -30,7 +48,10 @@ const GithubActivity = () => {
 
   return (
     <div className="mt-5 rounded-lg border border-neutral-200 bg-neutral-50 p-4 sm:p-6 dark:border-neutral-700 dark:bg-neutral-800/40">
-      <div className="overflow-x-auto">
+      <div
+        className="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-neutral-300 hover:[&::-webkit-scrollbar-thumb]:bg-neutral-400 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-700 dark:hover:[&::-webkit-scrollbar-thumb]:bg-neutral-600 [&::-webkit-scrollbar-track]:bg-transparent"
+        style={scrollbarStyles}
+      >
         {mounted ? (
           <GitHubCalendar
             username="ahadsheikh1814"
@@ -38,10 +59,7 @@ const GithubActivity = () => {
             blockMargin={4}
             fontSize={14}
             colorScheme={theme}
-            theme={{
-              light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-              dark: ["#262626", "#0e4429", "#006d32", "#26a641", "#39d353"],
-            }}
+            theme={themeColors}
           />
         ) : (
           <div className="flex h-32 items-center justify-center">

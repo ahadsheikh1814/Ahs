@@ -93,7 +93,7 @@ const Page = () => {
           {/* View projects */}
           <div className="group mt-8 flex w-fit cursor-pointer items-center text-sm md:mt-10">
             <Link
-              href="/project"
+              href="/projects"
               className="flex items-center gap-1 transition-all duration-300"
             >
               <span>View projects</span>
