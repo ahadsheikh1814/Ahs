@@ -10,7 +10,8 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconX, IconCommand } from "@tabler/icons-react";
+import CommandMenu from "./command-menu";
 
 type navLink = {
   title: string;
@@ -48,6 +49,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isHovered, setHovered] = useState<number | null>(null);
   const [scrolled, setScroll] = useState<boolean>(false);
+  const [commandOpen, setCommandOpen] = useState(false);
 
   const { scrollY } = useScroll();
 
@@ -58,56 +60,77 @@ const Navbar = () => {
       setScroll(false);
     }
   });
+
   return (
-    <motion.nav
-      animate={{
-        height: scrolled ? "64px" : "",
-      }}
-      transition={{
-        duration: 0.3,
-        ease: "easeOut",
-      }}
-      className="bg-background/10 sticky top-0 z-20 mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-2 backdrop-blur-sm md:px-5"
-    >
-      <ModeToggle />
-      <div className="hidden w-[25rem] items-center justify-center rounded-full py-1 md:flex">
-        {NavLinks.map((itm, idx) => (
-          <Link
-            className="relative px-2 py-1 text-sm"
-            key={idx}
-            href={itm.href}
-            onMouseEnter={() => setHovered(idx)}
-            onMouseLeave={() => setHovered(null)}
+    <>
+      <motion.nav
+        animate={{
+          height: scrolled ? "64px" : "",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeOut",
+        }}
+        className="bg-background/10 sticky top-0 z-20 mx-auto flex h-23 w-full max-w-4xl items-center justify-between px-2 backdrop-blur-sm md:px-5"
+      >
+        <div className="flex items-center gap-2">
+          <ModeToggle />
+          <button
+            onClick={() => setCommandOpen(true)}
+            className="hidden cursor-pointer items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 md:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
           >
-            <span
-              className={cn(
-                "z-10 text-sm font-semibold",
-                "transition-colors duration-75",
-                pathname === itm.href &&
-                  "z-10 text-teal-600 hover:text-teal-500",
-              )}
+            <IconCommand className="h-3.5 w-3.5" />
+            <span>Search</span>
+            <kbd className="ml-1 rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-xs font-medium text-neutral-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-400">
+              ⌘K
+            </kbd>
+          </button>
+        </div>
+
+        <div className="hidden w-[25rem] items-center justify-center rounded-full py-1 md:flex">
+          {NavLinks.map((itm, idx) => (
+            <Link
+              className="relative px-2 py-1 text-sm"
+              key={idx}
+              href={itm.href}
+              onMouseEnter={() => setHovered(idx)}
+              onMouseLeave={() => setHovered(null)}
             >
-              {itm.title}
-            </span>
-            {isHovered === idx && (
-              <motion.span
-                layoutId="hovered-span"
-                className={
-                  "bg-accent absolute inset-0 -z-10 h-full w-full rounded-md"
-                }
-              />
-            )}
-          </Link>
-        ))}
-      </div>
-      <MobileNav />
-    </motion.nav>
+              <span
+                className={cn(
+                  "z-10 text-sm font-semibold",
+                  "transition-colors duration-75",
+                  pathname === itm.href &&
+                    "z-10 text-teal-600 hover:text-teal-500",
+                )}
+              >
+                {itm.title}
+              </span>
+              {isHovered === idx && (
+                <motion.span
+                  layoutId="hovered-span"
+                  className={
+                    "bg-accent absolute inset-0 -z-10 h-full w-full rounded-md"
+                  }
+                />
+              )}
+            </Link>
+          ))}
+        </div>
+        <MobileNav setCommandOpen={setCommandOpen} />
+      </motion.nav>
+      <CommandMenu open={commandOpen} setOpen={setCommandOpen} />
+    </>
   );
 };
 
 export default Navbar;
 
-const MobileNav = () => {
+const MobileNav = ({
+  setCommandOpen,
+}: {
+  setCommandOpen: (value: boolean) => void;
+}) => {
   const [isActive, setActive] = useState<boolean>(false);
 
   return (
@@ -116,6 +139,12 @@ const MobileNav = () => {
         <Link href={"/"}>Home</Link>
         <Link href={"/projects"}>Projects</Link>
         <Link href={"/ai"}>AI</Link>
+        <button
+          onClick={() => setCommandOpen(true)}
+          className="flex items-center justify-center"
+        >
+          <IconCommand className="h-5 w-5 cursor-pointer" />
+        </button>
         <button onClick={() => setActive(!isActive)} className="z-50">
           {isActive ? (
             <IconX className="cursor-pointer" />
