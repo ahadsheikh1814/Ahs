@@ -95,10 +95,10 @@ export default function AIPage() {
       <div ref={scrollRef} className="flex-1 overflow-y-auto mb-2 space-y-2">
         {chat.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full">
-            <h1 className="text-xl font-medium mb-1 text-gray-900 dark:text-gray-100">
+            <h1 className="text-xl font-medium mb-1 text-neutral-900 dark:text-neutral-100">
               Ask Ahad AI
             </h1>
-            <p className="text-gray-500 dark:text-gray-400 mb-3 text-sm">
+            <p className="text-neutral-500 dark:text-neutral-400 mb-3 text-sm">
               Ask me anything about Ahad
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg">
@@ -106,7 +106,7 @@ export default function AIPage() {
                 <button
                   key={index}
                   onClick={() => ask(suggestion)}
-                  className="px-2.5 py-1.5 text-sm text-left rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors dark:text-gray-300"
+                  className="px-2.5 py-1.5 text-sm text-left rounded-md border border-ntext-neutral-200 dark:border-ntext-neutral-700 hover:bg-ntext-neutral-50 dark:hover:bg-ntext-neutral-800 transition-colors dark:text-neutral-300"
                 >
                   {suggestion}
                 </button>
@@ -128,7 +128,7 @@ export default function AIPage() {
                   className={`max-w-[85%] px-2.5 py-1.5 rounded-md text-sm ${
                     msg.role === "user"
                       ? "bg-black dark:bg-white text-white dark:text-black"
-                      : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                      : "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
                   }`}
                 >
                   {msg.role === "assistant" ? (
@@ -155,11 +155,11 @@ export default function AIPage() {
             animate={{ opacity: 1 }}
             className="flex justify-start"
           >
-            <div className="bg-gray-100 dark:bg-gray-800 px-2.5 py-1.5 rounded-md">
+            <div className="bg-ntext-neutral-100 dark:bg-ntext-neutral-800 px-2.5 py-1.5 rounded-md">
               <div className="flex space-x-1">
-                <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse" />
-                <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse [animation-delay:0.2s]" />
-                <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-pulse [animation-delay:0.4s]" />
+                <div className="w-1.5 h-1.5 bg-ntext-neutral-400 dark:bg-ntext-neutral-500 rounded-full animate-pulse" />
+                <div className="w-1.5 h-1.5 bg-ntext-neutral-400 dark:bg-ntext-neutral-500 rounded-full animate-pulse [animation-delay:0.2s]" />
+                <div className="w-1.5 h-1.5 bg-ntext-neutral-400 dark:bg-ntext-neutral-500 rounded-full animate-pulse [animation-delay:0.4s]" />
               </div>
             </div>
           </motion.div>
@@ -167,7 +167,7 @@ export default function AIPage() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t dark:border-gray-800 pt-2">
+      <div className="border-t dark:border-ntext-neutral-800 pt-2">
         <div className="relative">
           <input
             ref={inputRef}
@@ -177,12 +177,12 @@ export default function AIPage() {
             onKeyDown={handleKeyDown}
             placeholder="Ask about Ahad..."
             disabled={loading}
-            className="w-full px-2.5 py-1.5 pr-9 rounded-md border border-gray-200 dark:border-gray-700 focus:border-gray-400 dark:focus:border-gray-600 focus:outline-none text-sm disabled:bg-gray-50 dark:disabled:bg-gray-900 dark:bg-gray-900 dark:text-gray-100"
+            className="w-full px-2.5 py-1.5 pr-9 rounded-md border border-ntext-neutral-200 dark:border-ntext-neutral-700 focus:border-ntext-neutral-400 dark:focus:border-ntext-neutral-600 focus:outline-none text-sm disabled:bg-ntext-neutral-50 dark:disabled:bg-ntext-neutral-900 dark:bg-ntext-neutral-900 dark:text-neutral-100"
           />
           <button
             onClick={() => ask()}
             disabled={!message.trim() || loading}
-            className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 rounded-md bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:cursor-not-allowed transition-colors"
+            className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 rounded-md bg-black dark:bg-white text-white dark:text-black hover:bg-ntext-neutral-800 dark:hover:bg-ntext-neutral-200 disabled:bg-ntext-neutral-300 dark:disabled:bg-ntext-neutral-700 disabled:cursor-not-allowed transition-colors"
           >
             <IconSend className="w-4 h-4" />
           </button>

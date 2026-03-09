@@ -62,7 +62,7 @@ const Footer = () => {
                   Ahad Sheikh
                 </span>
               </div>
-              <p className="text-xs leading-relaxed font-medium text-neutral-600 dark:text-neutral-400">
+              <p className="text-xs leading-relaxed font-medium text-neutral-600 dark:text-neutral-400 text-balance">
                 Building digital experiences with clean code and thoughtful
                 design.
               </p>
