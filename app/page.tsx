@@ -21,19 +21,8 @@ const page = () => {
           Projects
         </h1>
       </div>
-      <div className="mt-5 grid gap-10 md:grid-cols-2">
-        {Projects.map((itm, idx) => (
-          <ProjectCards
-            key={idx}
-            title={itm.title}
-            description={itm.description}
-            imgUrl={itm.imgUrl}
-            tech={itm.tech}
-            link={itm.link}
-            LandImg={itm.LandImg}
-            GitDir={itm.GitDir}
-          />
-        ))}
+      <div className="mt-5 grid gap-10">
+          <ProjectCards projects={Projects} />
       </div>
       <div className="mt-3 flex w-full justify-center">
         <SeeMoreBtn link="/projects">See More</SeeMoreBtn>

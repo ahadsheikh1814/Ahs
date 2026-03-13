@@ -48,7 +48,7 @@ const Spotify = () => {
   return (
     <div className="">
       {isLoading ? (
-        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner">
+        <div className="bg-accent/30 border-border/50 flex items-center gap-3 rounded-lg border p-3 text-sm shadow-inner dark:shadow-[inset_0_1px_2px_#ffffff0f,inset_0_1px_4px_#ffffff08]">
           <div className="bg-accent/50 h-12 w-12 animate-pulse rounded-md" />
           <div className="flex flex-1 flex-col gap-1">
             <div className="bg-accent/50 h-3 w-16 animate-pulse rounded" />

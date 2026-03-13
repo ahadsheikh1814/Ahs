@@ -67,7 +67,7 @@
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
   /* ahs */
-  --shadow-ahs: 0px 2px 3px -1px #0000001a,0px 1px 0px 0px #191c2105,0px 0px 0px 1px #191c2114;
+  --shadow-ahs: 0px 2px 3px -1px #0000001a, 0px 1px 0px 0px #191c2105, 0px 0px 0px 1px #191c2114;
 }
 
 :root {
@@ -129,9 +129,9 @@
     0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
   --tracking-normal: 0em;
-  
+
   /* ahs */
-  --shadow-ahs: 0px 2px 3px -1px #0000001a,0px 1px 0px 0px #191c2105,0px 0px 0px 1px #191c2114;
+  --shadow-ahs: 0px 2px 3px -1px #0000001a, 0px 1px 0px 0px #191c2105, 0px 0px 0px 1px #191c2114;
 }
 
 .dark {
@@ -193,13 +193,14 @@
     0px 1px 2px 0px hsl(0 0% 0% / 0.18), 0px 8px 10px -1px hsl(0 0% 0% / 0.18);
   --shadow-2xl: 0px 1px 2px 0px hsl(0 0% 0% / 0.45);
   /* ahs */
-  --shadow-ahs:0px 2px 3px -1px #ffffff1a,0px 1px 0px 0px #ffffff05,0px 0px 0px 1px #ffffff14
+  --shadow-ahs: 0px 2px 3px -1px #ffffff1a, 0px 1px 0px 0px #ffffff05, 0px 0px 0px 1px #ffffff14
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
@@ -207,6 +208,7 @@
 }
 
 @layer utilities {
+
   /* ensure we can apply manrope via Tailwind class */
   .font-manrope {
     font-family: var(--font-manrope) !important;

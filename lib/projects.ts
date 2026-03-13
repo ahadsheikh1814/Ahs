@@ -37,4 +37,18 @@ export const Projects:project[] = [
         LandImg:"/treefyhero.png",
         GitDir:"https://github.com/ahadsheikh1814/Treefy"
     },
+    {
+        title:"FormCraft",
+        description:"FormCraft - Forms that feel human. Create beautiful, intuitive forms in minutes. No coding required. Just drag, drop, and customize to your heart's content.",
+        imgUrl:"/form-craft.png",
+        tech:[
+            "tailwind css",
+            "Next js",
+            "mongodb",
+            "better-auth",
+        ],
+        link:"https://formcraft-xi.vercel.app/",
+        LandImg:"/formcraft-land.png",
+        GitDir:"https://github.com/ahadsheikh1814/form-craft"
+    },
 ]

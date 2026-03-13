@@ -9,23 +9,11 @@ const page = () => {
     <div className="min-h-screen">
       <H1 className="mt-10">Projects</H1>
       <HighLightText>I love to make cool things</HighLightText>
-      <div className="mt-5 grid gap-10 md:grid-cols-2">
-        {Projects.map((itm, idx) => (
-          <ProjectCards
-            key={idx}
-            title={itm.title}
-            description={itm.description}
-            imgUrl={itm.imgUrl}
-            tech={itm.tech}
-            link={itm.link}
-            LandImg={itm.LandImg}
-            GitDir={itm.GitDir}
-          />
-        ))}
+      <div className="mt-5">
+        <ProjectCards projects={Projects} />
       </div>
     </div>
   );
 };
 
 export default page;
-
